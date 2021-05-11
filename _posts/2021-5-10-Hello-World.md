@@ -14,11 +14,11 @@ title: Github+Jekyll搭建个人博客(不需要服务器和域名,感恩Github)
 
 ```
 
-![_config.yml]({{ site.baseurl }}/images/config.png)
+![_config.yml]({{ site.baseurl }}/images/jekyll-logo2.png)
 
 ```
 效果:
-![_config.yml]({{ site.baseurl }}/images/config.png)
+![_config.yml]({{ site.baseurl }}/images/jekyll-logo2.png)
 
 2.绝对路径访问外站图片
 
