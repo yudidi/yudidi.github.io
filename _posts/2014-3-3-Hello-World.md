@@ -1,12 +1,21 @@
 ---
 layout: post
-title: You're up and running!
+title: Github+Jekyll搭建个人博客(不需要服务器和域名,感恩Github)
 ---
 
-Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).
+1.[按照这个博客说的做](https://www.jianshu.com/p/95646037acdc/)
+2.[进一步使用看官方文档](https://jekyllrb.com/docs/posts/)
 
-[使用文档](https://jekyllrb.com/docs/posts/)
+# 一开始遇到的几个问题
 
+## Q:配置图片
+1.相对路径访问仓库的图片
+
+```
+![_config.yml]({{ site.baseurl }}/images/config.png)
+```
+效果:
 ![_config.yml]({{ site.baseurl }}/images/config.png)
 
-The easiest way to make your first post is to edit this one. Go into /_posts/ and update the Hello World markdown file. For more instructions head over to the [Jekyll Now repository](https://github.com/barryclark/jekyll-now) on GitHub.
+2.绝对路径访问外站图片
+
