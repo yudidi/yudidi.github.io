@@ -4,15 +4,18 @@ title: Github+Jekyll搭建个人博客(不需要服务器和域名,感恩Github)
 ---
 
 1.[按照这个博客说的做](https://www.jianshu.com/p/95646037acdc/)
+
 2.[进一步使用看官方文档](https://jekyllrb.com/docs/posts/)
 
-# 一开始遇到的几个问题
+# 遇到的问题
 
 ## Q:配置图片
 1.相对路径访问仓库的图片
 
 ```
+
 ![_config.yml]({{ site.baseurl }}/images/config.png)
+
 ```
 效果:
 ![_config.yml]({{ site.baseurl }}/images/config.png)
