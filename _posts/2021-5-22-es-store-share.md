@@ -1,7 +1,8 @@
 ---
 layout: post
-title: es存储原理-内部技术分享
+title: es存储原理-内部技术分享 
 ---
+// TODO es term 和term index 选择term时 与hash表的不同. fst
 
 分两部分
 
@@ -25,7 +26,7 @@ index（索引）：名词指的 一堆有相似结构的 文档数据，与mysq
 Term 词条：最小的存储 和 查询单元，英文里的一个单词，中文里分词后的一个词
 
 Term Index：可以快速地定位到Term Dictionary 的某个 key，加速 以及 节省内存空间
-数据结构是变种的trie树
+数据结构是变种的trie树   // TODO ydd 这里好像是fst数据结构，具体还要再看看
 
 Term dictionary词典：词条Term 的集合，类似与哈希表
 单词到 倒排列表之间的关系；key 是词， value是 倒排表，
