@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 
+title: Golang: 深入理解panic and recover
 ---
 
 1.如果协程A发生了panic，协程B是否会因为协程A的panic而挂掉？
@@ -33,3 +33,6 @@ func main() {
 因为就1个cpu啊，只能执行一个内核线程。
 一个内核线程(GPM的M)某个时刻只能执行一个携程。
 子携程还没来得及启动，main就完事退出了。
+
+# 参考
+2.[Golang: 深入理解panic and recover](https://ieevee.com/tech/2017/11/23/go-panic.html)
