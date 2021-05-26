@@ -32,7 +32,7 @@ A: 发现可重复读的情况下， 乐观锁也是没问题。因为update是�
 ![_config.yml]({{ site.baseurl }}/images/content/update-current-read.png)
 
 ## 群讨论
-![_config.yml]({{ site.baseurl }}/images/content/update-current-read-1.png)
+![_config.yml]({{ site.baseurl }}/images/content/update-current-read-1.jpeg)
 
 
 # 参考资料
