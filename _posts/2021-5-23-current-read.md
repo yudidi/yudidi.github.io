@@ -37,3 +37,4 @@ A: 发现可重复读的情况下， 乐观锁也是没问题。因为update是�
 
 # 参考资料
 1.[08 | 事务到底是隔离的还是不隔离的？](https://time.geekbang.org/column/article/70562)
+2.本机资料[【169期】面试官：同学，分析一下MySQL_InnoDB的加锁过程吧-技术圈.pdf]
