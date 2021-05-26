@@ -26,5 +26,14 @@ A: 发现可重复读的情况下， 乐观锁也是没问题。因为update是�
 ## Q: 乐观锁在可重复读下的使用的过程?
 // 附录1
 
+# 以下是技术群讨论后,2021-05-26更新
+
+# update包含了当前读
+![_config.yml]({{ site.baseurl }}/images/content/update-current-read.png)
+
+## 群讨论
+![_config.yml]({{ site.baseurl }}/images/content/update-current-read-1.png)
+
+
 # 参考资料
 1.[08 | 事务到底是隔离的还是不隔离的？](https://time.geekbang.org/column/article/70562)
