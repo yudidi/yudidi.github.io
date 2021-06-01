@@ -27,6 +27,7 @@ select * from orders_history where type=8 limit 1000000,100;
 这种分页查询方式会从数据库第一条记录开始扫描，所以越往后，查询速度越慢，而且查询的数据越多，也会拖慢总查询速度。
 
 # 如何改进
+子查询
 
 # 参考
 1.[大数据量sql分页查询很慢，有哪些优化方案？](https://zhuanlan.zhihu.com/p/85728202)
