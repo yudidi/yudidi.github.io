@@ -31,3 +31,4 @@ select * from orders_history where type=8 limit 1000000,100;
 
 # 参考
 1.[大数据量sql分页查询很慢，有哪些优化方案？](https://zhuanlan.zhihu.com/p/85728202)
+2.[分页场景（limit,offset）为什么会慢](https://juejin.cn/post/6844903939247177741)
