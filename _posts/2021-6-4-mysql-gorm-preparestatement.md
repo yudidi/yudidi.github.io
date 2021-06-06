@@ -24,6 +24,25 @@ Can't create more than max_prepared_stmt_count statements (current value: 16382)
 
 ![_config.yml]({{ site.baseurl }}/images/content/gorm-improve.png)
 
+# TODO
+preparestatement是基于session做存储，如果session读了，就会有较多的重复preparestatement
+
+# 抓包分析preparestatement
+mysql抓包能看到先发包过去编译sql
+
+# 按照附录3查看performance_schema.prepared_statements_instances,发现没有该库,原因:
+[云数据库RDS的MySQL版无法查询performance_schema值](https://help.aliyun.com/document_detail/41726.html)
+
 
 # 参考
 1.[database/sql: Stmt的使用以及坑](https://studygolang.com/articles/1795)
+
+[](https://blog.csdn.net/vkingnew/article/details/80972823)
+
+2.[PreparedStatement的原理](https://www.geek-share.com/detail/2693287038.html)
+
+[MySQL · 特性分析 · MySQL的预编译功能](http://mysql.taobao.org/monthly/2018/04/07/)  TODO
+
+[](https://www.cnblogs.com/micrari/p/7112781.html)
+
+3.[mysql_stmt含义_Mysql--由prepared sql statement引发的问题](https://blog.csdn.net/weixin_39927623/article/details/114825698)

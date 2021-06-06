@@ -15,3 +15,18 @@ layout: default
 
   {% include disqus.html %}
 </article>
+
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+  var gitment = new Gitment({
+    owner: 'sicnuyudidi',
+    repo: 'blog_comment',
+    oauth: {
+      client_id: '7ab9f3aa6d594a747d49',
+      client_secret: '70a99ebeb778960852bae1d95677af6c488e97d9',
+    },
+  });
+  gitment.render('gitmentContainer');
+</script>
