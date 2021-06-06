@@ -32,7 +32,7 @@ title: Github+Jekyll+gitment 搭建个人博客(带评论系统)
 1.新注册一个github小号.
 2.生成github oauth的"Authorization callback URL",填自己博客路径即可,比如我填写的https://yudidi.github.io/
 
-![_config.yml]({{ site.baseurl }}/images/content/blog_issues/.png)
+![_config.yml]({{ site.baseurl }}/images/content/blog_issues.png)
 
 第一个成功的评论:
 https://yudidi.github.io/pprof-heap-alloc/
