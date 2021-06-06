@@ -29,7 +29,7 @@ aplum_product/src/product_server/models/db.(*TProduct).SetActivityRule
     181            .          .           	for i, config := range p.ActivityConfigs { 
     182      5996623    5996623                 log.Debug("%v conf %v,%v", i, config.ID, config.Name) 
 ```
-2.split方法。
+2.split方法
 
 # 参考
-1.[1](https://lrita.github.io/2017/05/26/golang-memory-pprof/#--inusealloc_space---inusealloc_objects%E5%8C%BA%E5%88%AB)
+1.[--inuse/alloc_space --inuse/alloc_objects区别](https://lrita.github.io/2017/05/26/golang-memory-pprof/#--inusealloc_space---inusealloc_objects%E5%8C%BA%E5%88%AB)
