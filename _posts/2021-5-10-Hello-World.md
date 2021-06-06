@@ -31,7 +31,7 @@ title: Github+Jekyll+gitment 搭建个人博客(带评论系统)
 
 两点注意:
 
-1.新注册一个github小号.
+1.新注册一个github小号,在小号里注册oauth application,使用小号app的client secret.
 
 2.生成github oauth的"Authorization callback URL",填自己博客路径即可,比如我填写的https://yudidi.github.io/
 
