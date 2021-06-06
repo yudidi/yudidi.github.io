@@ -1,7 +1,9 @@
 ---
 layout: post
-title: Github+Jekyll+gitment搭建个人博客+评论系统(感恩Github,不需要服务器和域名)
+title: Github+Jekyll+gitment 搭建个人博客(带评论系统)
 ---
+# 感恩Github,这套系统不需要服务器和域名
+
 # 2021-5-10 首次搭建,没有评论系统
 1.[按照这个博客说的做](https://www.jianshu.com/p/95646037acdc/)
 
