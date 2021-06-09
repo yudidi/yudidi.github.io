@@ -16,4 +16,5 @@ title: golang性能优化和gc
 
 20w次请求，才产生垃圾w。
 
+# 参考
 [区分 提升gc能力 和 通过减少分配的对象进而减少gc次数 是两种不同的思路](https://www.ardanlabs.com/blog/2018/12/garbage-collection-in-go-part1-semantics.html)
