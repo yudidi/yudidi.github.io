@@ -1,6 +1,6 @@
 ---
 layout: post
-title: es查询时分词和索引时分词
+title: golang性能优化和gc
 ---
 
 ![_config.yml]({{ site.baseurl }}/images/content/golang-gc.png)
