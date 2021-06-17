@@ -19,14 +19,13 @@ title: 阿里云RDS(mysql)慢sql-自动化报警脚本
 经过搜索一些资料,考虑讲刚刚的过程进行一定脚本自动化。
 
 # 自动化脚本思路
-从`information_schema.PROCESSLIST` 查询出执行时间超过10s的sql,然后发送钉钉报警,这样加快慢sql的定位速度.
+从`information_schema.PROCESSLIST`查询出执行时间超过10s的sql,然后发送钉钉报警,这样加快慢sql的定位速度.
 ```
-SELECT * FROM `information_schema`.`PROCESSLIST` LIMIT 0,1000
+SELECT * FROM `information_schema`.`PROCESSLIST` Where COMMAND = 'Query' AND Time >= 10;
 ```
 
 # 后续改进
-1.`information_schema.PROCESSLIST`有时不能获取到sql具体是什么.
-2.这个脚本只是发现sql,并没有自动kill掉这个慢sql。
+1.这个脚本只是发现sql,并没有自动kill掉这个慢sql。
 
 # 参考
 1.[MySQL之查询截取分析（慢查询日志等 ）](https://www.huaweicloud.com/articles/206e8f5e82331018f8cfde939455c319.html)
