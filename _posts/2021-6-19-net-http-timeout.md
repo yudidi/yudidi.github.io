@@ -30,8 +30,11 @@ title: 【转载】i/o timeout,希望你不要踩到这个net/http包的坑
 
 # 参考
 1.[i/o timeout ， 希望你不要踩到这个net/http包的坑](https://mp.weixin.qq.com/s/nifRx6FI2MclXiJqBIWFDw)
+
 2.[携程泄漏分析](https://mp.weixin.qq.com/s?__biz=MzAwMDAxNjU4Mg==&mid=2247483794&idx=1&sn=0b617bf9acffc17afa5b3278d3d32eef&scene=21#wechat_redirect)
+
 3.[给大家丢脸了，用了三年golang，我还是没答对这道内存泄漏题](https://mp.weixin.qq.com/s?__biz=MzAwMDAxNjU4Mg==&mid=2247483794&idx=1&sn=0b617bf9acffc17afa5b3278d3d32eef&scene=21#wechat_redirect)
+
 这篇文章后面有很多面试题链接
 ```
 连nil切片和空切片一不一样都不清楚？那BAT面试官只好让你回去等通知了。
