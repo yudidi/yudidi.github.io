@@ -36,3 +36,21 @@ title: 【转载】i/o timeout,希望你不要踩到这个net/http包的坑
 # 参考
 1.[i/o timeout ， 希望你不要踩到这个net/http包的坑](https://mp.weixin.qq.com/s/nifRx6FI2MclXiJqBIWFDw)
 2.[携程泄漏分析](https://mp.weixin.qq.com/s?__biz=MzAwMDAxNjU4Mg==&mid=2247483794&idx=1&sn=0b617bf9acffc17afa5b3278d3d32eef&scene=21#wechat_redirect)
+3.[给大家丢脸了，用了三年golang，我还是没答对这道内存泄漏题](https://mp.weixin.qq.com/s?__biz=MzAwMDAxNjU4Mg==&mid=2247483794&idx=1&sn=0b617bf9acffc17afa5b3278d3d32eef&scene=21#wechat_redirect)
+这篇文章后面有很多面试题链接
+```
+连nil切片和空切片一不一样都不清楚？那BAT面试官只好让你回去等通知了。
+昨天那个在for循环里append元素的同事，今天还在么？
+golang面试官：for select时，如果通道已经关闭会怎么样？如果只有一个case呢？
+golang面试官：for select时，如果通道已经关闭会怎么样？如果只有一个case呢？
+golang面试题：对已经关闭的的chan进行读写，会怎么样？为什么？
+golang面试题：对未初始化的的chan进行读写，会怎么样？为什么？
+golang 面试题：reflect（反射包）如何获取字段 tag？为什么 json 包不能导出私有变量的 tag？
+golang面试题：json包变量不加tag会怎么样？
+golang面试题：怎么避免内存逃逸？
+golang面试题：简单聊聊内存逃逸？
+golang面试题：字符串转成byte数组，会发生内存拷贝吗？
+golang面试题：翻转含有中文、数字、英文字母的字符串
+golang面试题：拷贝大切片一定比小切片代价大吗？
+golang面试题：能说说uintptr和unsafe.Pointer的区别吗？
+```
