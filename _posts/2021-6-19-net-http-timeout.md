@@ -19,7 +19,7 @@ title: 【转载】i/o timeout,希望你不要踩到这个net/http包的坑
 
 2.2 每次
 
-3 net/http包复用长连接的缘由
+3. net/http包复用长连接的缘由
 
 4. net/http包复用长连接的实现(源码分析)
 
