@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 【转载】阿里canal是怎么通过zookeeper实现HA机制的？
+title: 阿里canal是怎么通过zookeeper实现HA机制的？
 ---
 
 最近升级公司的canal集群,同时也了解canal集群的基本交互流程和HA的实现方法。
