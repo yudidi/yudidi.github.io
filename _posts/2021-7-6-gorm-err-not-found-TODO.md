@@ -3,8 +3,7 @@ layout: post
 title: 从源码分析gorm何时抛出ErrRecordNotFound
 ---
 
-
-```
+```go
 // First find first record that match given conditions, order by primary key
 func (db *DB) First(dest interface{}, conds ...interface{}) (tx *DB) {
 	tx = db.Limit(1).Order(clause.OrderByColumn{
