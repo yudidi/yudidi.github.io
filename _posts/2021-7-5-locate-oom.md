@@ -132,7 +132,7 @@ func (m *metricMap) getOrCreateMetricWithLabelValues(
 
 	m.mtx.Lock()
 	defer m.mtx.Unlock()
-	metric, ok = m.getMetricWithHashAndLabelValues(hash, lvs, curry) // TODO 这里还没看懂,应该没有找到指标metric的意思
+	metric, ok = m.getMetricWithHashAndLabelValues(hash, lvs, curry) // TODO 这里还没细看,看函数名就是根据指标的hash查找指标metric
 	if !ok {
 		inlinedLVs := inlineLabelValues(lvs, curry)
 		metric = m.newMetric(inlinedLVs...)
