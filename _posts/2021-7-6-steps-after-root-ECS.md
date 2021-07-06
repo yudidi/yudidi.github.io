@@ -8,7 +8,7 @@ title: 从事故中总结一个:ECS服务器重启后的操作手册
 ```
 1.手动重启go-cron的agent  // 定时任务调度框架
 命令:
-2.【已经添加开启启动项】自动部署需要旭杰手动重启/home/staragent/bin/staragentctl ，root权限  // 用于阿里云效流水线
+2.【已经添加开启启动项】自动部署需要运维手动重启/home/staragent/bin/staragentctl ，root权限  // 用于阿里云效流水线
 3.【已经添加开启启动项】consul的agent需要手动重启 // consul服务注册发现的agent
 命令:
 ```
