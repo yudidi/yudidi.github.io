@@ -64,7 +64,7 @@ func Scan(rows *sql.Rows, db *DB, initialized bool) {
 	values := make([]interface{}, len(columns))
 	db.RowsAffected = 0
     // ...
-	if db.RowsAffected == 0 && db.Statement.RaiseErrorOnNotFound {
+	if db.RowsAffected == 0 && db.Statement.RaiseErrorOnNotFound { // 这里,说明只有RaiseErrorOnNotFound=true,才会提升
 		db.AddError(ErrRecordNotFound)
 	}
 }
