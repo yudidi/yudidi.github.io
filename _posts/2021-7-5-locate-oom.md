@@ -11,7 +11,9 @@ title: prometheus使用姿势错误导致监控指标大量增长最终导致OOM
 ![_config.yml]({{ site.baseurl }}/images/content/20210705-svc01-oom-kill.jpg)
 
 先怀疑cpu,磁盘问题,同事们回想一下最近的修改,主要是消息中心和接入阿里云的日志服务。
-看了下最近提交的一些服务的代码，没有看出异常。
+
+浏览了最近提交的一些服务的代码，没有看出异常。
+
 重启服务器后，使用vmstat、pidstat 等性能工具，观察系统和进程的 CPU 使用率。 // 附录1
 
 ```
