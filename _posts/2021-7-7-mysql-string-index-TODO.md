@@ -39,5 +39,9 @@ CREATE TABLE `xxx` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='xxx';
 ```
 
+# TODO 原理
+
+为什么需要字符串前缀索引
+
 # 参考
 1.[RDS MySQL提示“Error 1709: Index column size too large. The maximum column size is 767 bytes.](https://help.aliyun.com/document_detail/155946.html)
