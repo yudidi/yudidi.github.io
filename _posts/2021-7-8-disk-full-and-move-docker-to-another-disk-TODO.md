@@ -5,7 +5,7 @@ title: 【线上事故处理】磁盘满了的处理步骤复盘总结
 
 # 磁盘满了,定位大文件的通常步骤
 
-1.使用df -h查看磁盘空间占用情况。
+* 1.使用df -h查看磁盘空间占用情况。
 
 可以发现是`/dev/vda1`磁盘占用较多，对应`/`根目录
 
@@ -16,8 +16,7 @@ Filesystem                                      Size  Used Avail Use% Mounted on
 /dev/vdb1                                       985G  322G  618G  35% /data
 ```
 
-
-2.使用du -s /* | sort -nr命令查看那个目录占用空间大
+* 2.使用 `du -s /* | sort -nr` 命令查看那个目录占用空间大
 
 因为没有权限,所以我这里给出示意结果。
 
@@ -25,13 +24,13 @@ Filesystem                                      Size  Used Avail Use% Mounted on
 /data/aplum/Archery-1.7.10/src/docker-compose  占用很大
 ```
 
-3.然后那个目录占用多,再通过`du -s 怀疑的路径 | sort -nr`一层层排查，找到占用文件多的地方。
+* 3.然后看哪个目录占用多,再通过 `du -s 怀疑的路径 | sort -nr` 一层层排查，找到占用文件多的地方。
 
 我今天发现的问题是`/data/aplum/Archery-1.7.10/src/docker-compose/mysql/datadir/`
 
-4.查看archery的docker-compose.yaml文件,发现mysql容器挂载到了该目录。
-archery应该执行某种操作，导致archery的mysql插入了大量的数据.
+* 4.查看archery的docker-compose.yaml文件,发现mysql容器挂载到了该目录。
 
+archery应该执行某种操作，导致archery的mysql插入了大量的数据.
 ```bash
 version: '3'
 
@@ -60,13 +59,13 @@ services:
   archery: 略
 ```
 
-5. 因为昨天同事通过archery平台提交了一个大表的删除语句,该表一共3000w+的数据,此次删除2000w+,按照id拆分为十多个如下删除语句:
+* 5.因为昨天同事通过archery平台提交了一个大表的删除语句,该表一共3000w+的数据,此次删除2000w+,按照id拆分为十多个如下删除语句:
 
 ```sql
 DELETE FROM 某个大表 where user_id = 0 and id BETWEEN 0 and 5000000;
 ```
 
-结合阿里云的云盘监控可以看到`2021-07-08 04:30:00`左右,云盘使用空间从75%猛增为100%。
+* 6.结合阿里云的云盘监控可以看到`2021-07-08 04:30:00`左右,云盘使用空间从75%猛增为100%。
 这个sql执行时间为`2021-07-08 04:05:00`,正好接近磁盘分区(/dev/vda1)的使用空间陡增的时间,
 
 ![_config.yml]({{ site.baseurl }}/images/content/20210708-task-archery-disk-used.png)
