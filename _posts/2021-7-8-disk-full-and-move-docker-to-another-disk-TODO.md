@@ -86,10 +86,15 @@ DELETE FROM 某个大表 where user_id = 0 and id BETWEEN 0 and 5000000;
 * 我们错误的迁移步骤
 
 1.我们执行了stop命令
+
 2.然后执行mv迁移解压后Archery目录到`/dev/vdb1`
+
 3.然后切入到docker-compose的目录,执行docker start,发现启动不了,【报错信息说原来的挂载路径找不到】
+
 //原因是:stop命令只是停止容器,而我们已经移动了挂载的目录,重写删除容器,重新挂载。
+
 4.所以执行down命令删除容器和挂载关系。
+
 5.然后执行docker-compose up命令,archery就在迁移后成功重启了，且其中mysql的挂载目录也切换到了新的磁盘空间。
 
 ```bash
