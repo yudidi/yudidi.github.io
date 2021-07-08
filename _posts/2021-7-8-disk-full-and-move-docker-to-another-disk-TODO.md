@@ -3,6 +3,19 @@ layout: post
 title: 【线上事故处理】磁盘满了的处理步骤复盘总结
 ---
 
+# 事故简述
+一早上来到公司，看到报警有大量报警信息。
+```
+云服务器实例ID=xxxx，device=/dev/vda1] /dev/vda1 ，磁盘使用率（100%>=97% ）（100%>=97%），持续时间5小时46分钟 
+```
+这个服务主要有2个功能
+1.作为定时任务的主要执行机器。
+2.部署了archery这个sql审核平台。
+
+一开始怀疑是某个定时任务产生了大量日志文件，问了周围同事，最近并没有新增定时任务。
+
+靠经验判断不行，那只能去定位大文件的位置，然后再继续分析问题了。
+
 # 磁盘满了,定位大文件的通常步骤
 
 * 1.使用df -h查看磁盘空间占用情况。
@@ -116,11 +129,15 @@ Commands:
 2. 如何知道哪个磁盘增长最多. 一般来说,就是文件最大的那个增长最多,有时也需要结合经验判断。
 3. 对于大文件,要么删除,要么移动。我们对于此次问题,因为我们的大文件是mysql容器挂载的数据文件,所以不能删除,需要移动。
 
-# TODO
-archery删除大表时的回滚机制是怎么做的，为什么会占用大量的磁盘空间?
+# archery删除大表时的回滚机制是怎么做的，为什么会占用大量的磁盘空间?
+// 附录5
+archery每执行一个sql,就会在备份库里生成对应的sql语句，而且产生的回滚语句都是针对一行的，
+所以今天的大表的删除语句产生的回滚sql应是2千多万行，导致磁盘占用从75G变为100G，基本对得上。
 
 # 参考
 1.[linux磁盘已满，查看哪个文件占用多](https://blog.csdn.net/a854517900/article/details/80824966)
-2.[goInception Docs](https://hanchuanchuan.github.io/goInception/#architecture)
+2.[goInception Docs-TODO回滚机制](https://hanchuanchuan.github.io/goInception/#architecture)
 3.[docker compose 几个命令](https://yeasy.gitbook.io/docker_practice/compose/commands#stop)
 4.[docker compose down命令的作用](https://maizitoday.github.io/post/docker%E7%B3%BB%E5%88%97-compose/#down)
+5.[Inception 备份功能说明
+](https://inception-document.readthedocs.io/zh_CN/latest/backup/)
