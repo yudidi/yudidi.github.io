@@ -1,6 +1,6 @@
 ---
 layout: post
-title: prometheus使用姿势错误导致监控指标大量增长最终导致OOM的复盘总结
+title: prometheus使用错误导致监控指标大量增长导致OOM复盘总结
 ---
 
 # 钉钉群里收到报警信息
