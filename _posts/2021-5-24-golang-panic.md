@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Golang: 深入理解panic and recover
+title: 深入理解panic and recover
 ---
 
 1.如果协程A发生了panic，协程B是否会因为协程A的panic而挂掉？
