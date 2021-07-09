@@ -1,6 +1,6 @@
 ---
 layout: post
-title:Go调度的例子 Go: Goroutine and Preemption
+title: Go的抢占式调度
 ---
 
 ```
