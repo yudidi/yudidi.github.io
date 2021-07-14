@@ -2,12 +2,10 @@
 layout: post
 title: Github+Jekyll+gitment 搭建个人博客(带评论系统)
 ---
-# 感恩Github,这套系统不需要服务器和域名
+** 感恩Github,这套系统不需要服务器和域名 **
 
 # 2021-5-10 首次搭建,没有评论系统
-1.[按照这个博客说的做](https://www.jianshu.com/p/95646037acdc/)
-
-2.[进一步使用看官方文档](https://jekyllrb.com/docs/posts/)
+按照附录1和2的博客做,因为这2个博客已经写得很完善了，我就不在赘述了。
 
 # 遇到的问题
 ## Q:配置图片
@@ -31,7 +29,7 @@ title: Github+Jekyll+gitment 搭建个人博客(带评论系统)
 
 两点注意:
 
-1.新注册一个github小号,在小号里注册oauth application,使用小号app的client secret.
+1.需要新注册一个github小号,在小号里注册oauth application,使用小号app的client secret.
 
 2.生成github oauth的"Authorization callback URL",填自己博客路径即可,比如我填写的https://yudidi.github.io/
 
@@ -41,4 +39,8 @@ title: Github+Jekyll+gitment 搭建个人博客(带评论系统)
 https://yudidi.github.io/pprof-heap-alloc/
 
 # 附录
+1.[按照这个博客说的做](https://www.jianshu.com/p/95646037acdc/)
+
+2.[进一步使用看官方文档](https://jekyllrb.com/docs/posts/)
+
 3.[在Jekyll博客添加评论系统：gitment篇](https://jacobpan3g.github.io/cn/2017/07/17/gitment-in-jekyll/#2-%E5%9C%A8jekyll%E5%8D%9A%E5%AE%A2%E8%B0%83%E7%94%A8gitment)
