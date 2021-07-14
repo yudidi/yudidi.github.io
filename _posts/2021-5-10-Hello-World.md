@@ -7,8 +7,6 @@ title: Github+Jekyll+gitment 搭建个人博客(带评论系统)
 # 2021-5-10 首次搭建,没有评论系统
 按照附录1和2的博客做,因为这两个博客已经写得很完善了，我就不在赘述了。
 
-# [本篇博客的原始文件在这里,遇到问题可以参考我的配置,都是透明开源的](https://github.com/yudidi/yudidi.github.io/blob/master/_posts/2021-5-10-Hello-World.md)
-
 # 遇到的问题
 ## Q:配置图片
 1.相对路径访问仓库的图片
@@ -46,3 +44,5 @@ https://yudidi.github.io/pprof-heap-alloc/
 2.[进一步使用看官方文档](https://jekyllrb.com/docs/posts/)
 
 3.[在Jekyll博客添加评论系统：gitment篇](https://jacobpan3g.github.io/cn/2017/07/17/gitment-in-jekyll/#2-%E5%9C%A8jekyll%E5%8D%9A%E5%AE%A2%E8%B0%83%E7%94%A8gitment)
+
+4.[本篇博客的源文件在这里,遇到问题可以参考我的源文件和历史提交记录,都是透明开源的](https://github.com/yudidi/yudidi.github.io/blob/master/_posts/2021-5-10-Hello-World.md)
