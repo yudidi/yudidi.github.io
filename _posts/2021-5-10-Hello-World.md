@@ -7,6 +7,8 @@ title: Github+Jekyll+gitment 搭建个人博客(带评论系统)
 # 2021-5-10 首次搭建,没有评论系统
 按照附录1和2的博客做,因为这两个博客已经写得很完善了，我就不在赘述了。
 
+# [本篇博客的原始文件在这里](https://github.com/yudidi/yudidi.github.io/blob/master/_posts/2021-5-10-Hello-World.md)
+
 # 遇到的问题
 ## Q:配置图片
 1.相对路径访问仓库的图片
