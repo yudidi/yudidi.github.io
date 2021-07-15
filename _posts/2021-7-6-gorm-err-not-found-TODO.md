@@ -58,8 +58,32 @@ func (db *DB) Find(dest interface{}, conds ...interface{}) (tx *DB) {
 	tx.callbacks.Query().Execute(tx)
 	return
 }
+-- gorm@v1.21.10/callbacks/callbacks.go:23
+func RegisterDefaultCallbacks(db *gorm.DB, config *Config) {
+	//...
+	queryCallback := db.Callback().Query()
+	queryCallback.Register("gorm:query", Query) // 注册Query处理器
+	//...
 
--- scan.go
+-- gorm@v1.21.10/callbacks/query.go:13
+func Query(db *gorm.DB) {
+	if db.Error == nil {
+		BuildQuerySQL(db)
+
+		if !db.DryRun && db.Error == nil {
+			rows, err := db.Statement.ConnPool.QueryContext(db.Statement.Context, db.Statement.SQL.String(), db.Statement.Vars...)
+			if err != nil {
+				db.AddError(err)
+				return
+			}
+			defer rows.Close()
+
+			gorm.Scan(rows, db, false) // 调用Scan
+		}
+	}
+}
+
+-- gorm@v1.21.10/scan.go:52
 func Scan(rows *sql.Rows, db *DB, initialized bool) {
 	columns, _ := rows.Columns()
 	values := make([]interface{}, len(columns))
