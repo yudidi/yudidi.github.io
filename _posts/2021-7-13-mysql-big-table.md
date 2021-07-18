@@ -18,7 +18,7 @@ from information_schema.tables
 where table_schema='xxx'
 order by data_length desc, index_length desc;
 ```
-* 查询结果如下,t这个单表大于50GB:数据40G,索引22G
+* 查询结果如下,t单表大于50GB:数据40G+索引22G
 
 | 数据库   | 表名             | 记录数       | 数据容量(MB) | 索引容量(MB) |
 |-------|----------------|-----------|----------|----------|
@@ -26,7 +26,7 @@ order by data_length desc, index_length desc;
 
 * t表结构示意如下
 ```sql
--- 主要存放用户领取，使用优惠券的信息
+-- 主要存放用户领取和使用优惠券的数据
 CREATE TABLE `t` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '自动编号',
   `user_id` int(10) unsigned NOT NULL COMMENT '所属用户',
