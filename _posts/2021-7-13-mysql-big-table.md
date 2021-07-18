@@ -52,7 +52,7 @@ CREATE TABLE `t` (
 
 2.2 1个全量表(阿里云adb),给统计用。单表一年新增10亿以内,性能还好。
 
-每n天通过脚本将一段时间内的热点数据表的数据(`insert|update`),增量的同步到全量表。
+每n天通过脚本将一段时间内的热点数据表的数据(`insert|update|delete`),增量的同步到全量表。
 
 ## 3.[阿里云的drds](https://www.aliyun.com/product/drds)
 有了方案2,暂时不考虑这个
