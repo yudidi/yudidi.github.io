@@ -84,8 +84,6 @@ A(其他): 哦,有大量的优惠券没有领取
 A(我): 恩,所以很多都没意义了，没有领取又失效了，那么业务上就没意义了，只有统计上需要。
 
 ## Q: 云原生分布式数据库 PolarDB-X,这个方案如何?
-https://www.aliyun.com/product/drds
-
 A(我): 还在调研,暂未考虑。
 
 ## Q: 全量表三年以后不是要有50亿,30亿数据还怎么查?
@@ -93,4 +91,5 @@ A: 估计分库分表我要重新考虑下,在多个群被质疑了
 
 # 附录
 1.[MySQL查看数据库表容量大小-3.查看指定数据库容量大小](https://blog.csdn.net/fdipzone/article/details/80144166)
+
 2.[首页 > PolarDB-X 云原生分布式数据库 > 技术白皮书 > 技术原理](https://help.aliyun.com/document_detail/261147.html?spm=a2c4g.11186623.2.8.285b7942kkETra)
