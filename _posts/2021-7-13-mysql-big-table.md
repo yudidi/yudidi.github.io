@@ -17,16 +17,16 @@ truncate(index_length/1024/1024, 2) as '索引容量(MB)'
 from information_schema.tables
 where table_schema='xxx'
 order by data_length desc, index_length desc;
--- t表结构示意如下: 主要存放用户领取，使用优惠券的信息。
 ```
+* 查询结果如下,可以看到数据占40G,索引占22G
 
 | 数据库   | 表名             | 记录数       | 数据容量(MB) | 索引容量(MB) |
 |-------|----------------|-----------|----------|----------|
 | xxx | t | 343112190 | 39595.23 | 22068.64 |
 
-* t表结构示意
-
+* t表结构示意如下
 ```sql
+-- 主要存放用户领取，使用优惠券的信息
 CREATE TABLE `t` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '自动编号',
   `user_id` int(10) unsigned NOT NULL COMMENT '所属用户',
