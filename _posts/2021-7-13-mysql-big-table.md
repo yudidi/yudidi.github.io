@@ -18,7 +18,7 @@ from information_schema.tables
 where table_schema='xxx'
 order by data_length desc, index_length desc;
 ```
-* 查询结果如下,可以看到数据占40G,索引占22G
+* 查询结果如下,t这个单表的数据占40G,索引占22G
 
 | 数据库   | 表名             | 记录数       | 数据容量(MB) | 索引容量(MB) |
 |-------|----------------|-----------|----------|----------|
