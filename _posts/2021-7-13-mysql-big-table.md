@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 大表处理-尽量避免分库分表-采用冷热分离的思路
+title: 大表处理思路(单表大于50G)
 ---
 
 # 背景
@@ -18,7 +18,7 @@ from information_schema.tables
 where table_schema='xxx'
 order by data_length desc, index_length desc;
 ```
-* 查询结果如下,t这个单表的数据占40G,索引占22G
+* 查询结果如下,t这个单表大于50GB:数据40G,索引22G
 
 | 数据库   | 表名             | 记录数       | 数据容量(MB) | 索引容量(MB) |
 |-------|----------------|-----------|----------|----------|
@@ -62,6 +62,9 @@ CREATE TABLE `t` (
 
 # 效果
 待我搞完才知道,应该能支持个3-5年。
+
+# 经验总结
+尽量避免分库分表,采用冷热分离的思路
 
 # 附录
 1.[MySQL查看数据库表容量大小-3.查看指定数据库容量大小](https://blog.csdn.net/fdipzone/article/details/80144166)
