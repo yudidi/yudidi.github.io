@@ -14,4 +14,4 @@ title: 电商业务中状态流转的处理方式调研-TODO
 
 # 参考
 1.[从体验角度看电商前端订单状态流转与后台联动-三、如何绘制订单状态流转](http://www.woshipm.com/pd/3136578.html)
-
+2.[关于B端状态流转的思考](https://coffee.pmcaff.com/article/E7LXwqezkd?rts=201102000107_nch)
