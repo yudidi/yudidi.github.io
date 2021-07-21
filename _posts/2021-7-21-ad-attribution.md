@@ -8,3 +8,4 @@ title: 互联网广告的渠道归因
 
 # 参考
 1.[关于互联网广告的渠道归因，你需要知道这些](https://zhuanlan.zhihu.com/p/259274164)
+2.[归因分析(Attribution Analysis)模型解析](https://www.jianshu.com/p/a1fa42c5cc42)
