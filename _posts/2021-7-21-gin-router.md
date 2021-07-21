@@ -75,4 +75,4 @@ func main() {
 
 # 参考
 1.[gin的路由就是基于这个写的](github.com/julienschmidt/httprouter)
-2.[路由图解-TODO](https://cch123.github.io/httprouter/)
+2.[路由图解-TODO-通配符和树结构图示](https://cch123.github.io/httprouter/)
