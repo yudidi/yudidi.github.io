@@ -43,8 +43,13 @@ Q:乐观锁怎么加
 
 Q:悲观锁怎么加
 
+# 乐观锁在可重复读的隔离级别下会有问题
+乐观锁在可重复读的隔离级别下,每次重试都是快照读,永远不会更新成功,很多请求一直重试,则会导致事务锁等待超时。
+// 附录4
+解决方案: 乐观锁需要配合读已提交的隔离级别才可以,这样是当前读,可以在最新版本的基础上进行更新,才会成功。
 
 # 参考资料
 1.[08 | 事务到底是隔离的还是不隔离的？](https://time.geekbang.org/column/article/70562)
 2.本机资料[【169期】面试官：同学，分析一下MySQL_InnoDB的加锁过程吧-技术圈.pdf]
 3.[使用mysql乐观锁解决并发问题](https://www.cnblogs.com/laoyeye/p/8097684.html)
+4.[乐观锁加重试，并发更新数据库一条记录导致：Lock wait timeout exceeded](https://blog.csdn.net/earthhour/article/details/105585695)
