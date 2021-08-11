@@ -44,6 +44,10 @@ CREATE TABLE `t` (
 
 ## 1.分库分表的方案
 略
+2021-08-11更新: TODO 从Java生态中了解到了一些组件,然后在Go生态中查找了相关资料.
+[分库分表实践-Sharding-JDBC](https://www.cnblogs.com/laoyeye/p/12439252.html)
+[mysql sharding 官方_GitHub - endink/go-sharding: Mysql 分库分表中间件](https://blog.csdn.net/weixin_39548541/article/details/113594049)
+[小米开源数据库中间件Gaea实战（有彩蛋）](https://dbaplus.cn/news-11-2645-1.html)
 
 ## 2.冷热分离的方案
 分库分表会导致多个业务线和统计业务的编码复杂化,所以不考虑分库分表,采用一种类似冷热分离的思路: 使用2个表。
