@@ -28,6 +28,16 @@ https://zhuanlan.zhihu.com/p/345736518
 
 # Canal生产环境问题
 
+
+# 2021-08-17更新
+最近在搭建一套Canal同步环境,又遇到了一些问题,这里参考附录6{Canal v1.1.4版本避坑指南}做一些记录.
+
+* 1. 现象:Canal运行一段时间就会出现,增量数据不同步的问题.
+报错: `Caused by: com.alibaba.otter.canal.parse.exception.CanalParseException: column size is not match for table:数据库名称.表名称,新表结构的字段数量 vs 缓存表结构的字段数量;`
+
+原因: 表结构缓存
+
+
 # 参考
 1.[阿里开源MySQL中间件Canal快速入门](https://blog.csdn.net/qqxx6661/article/details/106039464)
 
@@ -39,3 +49,5 @@ TODO
 4.[Mysql （master/slave）主从复制原理及配置](https://www.jianshu.com/p/510876797e31)
 
 5.[阿里Canal配置内容详解](https://my.oschina.net/u/585635/blog/4436514)
+
+6.[Canal v1.1.4版本避坑指南](https://mp.weixin.qq.com/s/U8tTO4OS9idx08exCD0rug)
