@@ -27,16 +27,35 @@ https://zhuanlan.zhihu.com/p/345736518
 
 
 # Canal生产环境问题
-
-
-# 2021-08-17更新
 最近在搭建一套Canal同步环境,又遇到了一些问题,这里参考附录6{Canal v1.1.4版本避坑指南}做一些记录.
 
-* 1. 现象:Canal运行一段时间就会出现,增量数据不同步的问题.
+## Q: 现象: Canal运行一段时间就会出现,增量数据不同步的问题.
 报错: `Caused by: com.alibaba.otter.canal.parse.exception.CanalParseException: column size is not match for table:数据库名称.表名称,新表结构的字段数量 vs 缓存表结构的字段数量;`
 
 原因: 表结构缓存
 
+## Q: intances消费日志出现: No route info for this topic, [MQ实例]%[topic名字]
+```
+Caused by: java.lang.RuntimeException: org.apache.rocketmq.client.exception.MQClientException: No route info for this topic, MQ_INST_1204765431532768_BcSmMA54%aplum_t_product_attr_value
+```
+```
+Caused by: java.lang.RuntimeException: org.apache.rocketmq.client.exception.MQClientException: No route info for this topic, [MQ实例]%[topic名字]
+```
+
+A:原因 未配置阿里云RocketMQ的访问密钥 ak/sk
+```
+# aliyun ak/sk , support rds/mq
+#canal.aliyun.accessKey =
+#canal.aliyun.secretKey =
+```
+
+当时用这个错误在canal的项目里面找到了这个issue[v1.1.5 连接阿里云RocketMQ失败 #3064](https://github.com/alibaba/canal/issues/3064)
+
+但是当时不理解ak/sk简写的具体含义,也就错过了这个解决方案。
+
+后来,通过不断的对比配置,缩小配置错误的范围,最终找到了原因,配置之后就OK了.
+
+我也给这个issue提交了comment,说明了[ak/sk的意思](https://github.com/alibaba/canal/issues/3064#issuecomment-900976087),希望能帮助后来者.
 
 # 参考
 1.[阿里开源MySQL中间件Canal快速入门](https://blog.csdn.net/qqxx6661/article/details/106039464)
