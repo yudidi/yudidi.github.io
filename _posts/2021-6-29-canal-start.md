@@ -57,6 +57,24 @@ A:原因 未配置阿里云RocketMQ的访问密钥 ak/sk
 
 我也给这个issue提交了comment,说明了[ak/sk的意思](https://github.com/alibaba/canal/issues/3064#issuecomment-900976087),希望能帮助后来者.
 
+## Q:控制canal同步的起始位点: 更新zk中消息的位点
+一、控制同步起始位置
+
+* 需求背景: 我希望监控我启动
+
+预发布环境RocketMQ下，canal在A1时间点启动，然后A2时间点停止；
+
+经过一段时间后，B1时间点再次启动canal服务:此时canal会先同步A2到B1时间段之间的数据，
+
+但是希望直接从B1(2020-10-14 14:00:00)时间点开始同步数据。
+
+* 重置位点方案
+1. 停止instance
+
+2. 删除zk中的位点信息  rmr /otter/canal/destinations/dev02db
+
+3. 启动instance
+
 # 参考
 1.[阿里开源MySQL中间件Canal快速入门](https://blog.csdn.net/qqxx6661/article/details/106039464)
 
