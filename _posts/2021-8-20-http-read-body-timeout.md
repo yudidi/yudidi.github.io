@@ -45,7 +45,7 @@ type Client struct {
 	// Client. The timeout includes connection time, any
 	// redirects, and reading the response body. The timer remains
 	// running after Get, Head, Post, or Do return and will
-	// interrupt reading of the Response.Body.
+	// interrupt reading of the Response.Body. (这里说了,如果超时,会中断do和read body操作)
 	//
 	// A Timeout of zero means no timeout.
 	//
