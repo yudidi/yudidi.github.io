@@ -5,6 +5,7 @@ title: Canal+阿里云的RocketMQ
 
 # 主要内容
 1.RocketMQ Name Server的功能与定位
+
 2.搭建基于Canal+阿里云的RocketMQ的数据同步环境的一些问题的原因解析
 
 # 背景
