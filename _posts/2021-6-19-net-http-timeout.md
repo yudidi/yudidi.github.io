@@ -29,7 +29,7 @@ title: 【转载】i/o timeout,希望你不要踩到这个net/http包的坑
 按照调用链路贴出函数和关键代码行即可,力求让读者不用看源码,只用看博客的跟踪链路即可明白源码的链路.
 
 # 参考
-1.[i/o timeout ， 希望你不要踩到这个net/http包的坑](https://mp.weixin.qq.com/s/nifRx6FI2MclXiJqBIWFDw)
+1.[i/o timeout ， 希望你不要踩到这个net/http包的坑](https://mp.weixin.qq.com/s?__biz=Mzg5NDY2MDk4Mw==&mid=2247486382&idx=1&sn=84254ec3ada10df290d5bc9edd28b0c4&source=41#wechat_redirect)
 
 2.[携程泄漏分析](https://mp.weixin.qq.com/s?__biz=MzAwMDAxNjU4Mg==&mid=2247483794&idx=1&sn=0b617bf9acffc17afa5b3278d3d32eef&scene=21#wechat_redirect)
 
