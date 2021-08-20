@@ -4,7 +4,7 @@ title: Canal+阿里云的RocketMQ
 ---
 
 # 主要内容
-1.RocketMQ Name Server的功能与定位
+1.RocketMQ Name Server的功能与定位。类比微服务架构
 
 2.搭建基于Canal+阿里云的RocketMQ的数据同步环境的一些问题的原因解析
 
@@ -12,11 +12,10 @@ title: Canal+阿里云的RocketMQ
 
 最近在搭建另一套基于Canal+阿里云的RocketMQ的数据同步环境,在canal-server投递到阿里云RocketMQ时,不能投递成功,从canal-instance日志中遇到一些报错:
 ```bash
-
+Caused by: java.lang.RuntimeException: org.apache.rocketmq.client.exception.MQClientException: No route info for this topic, [MQ实例]%[topic名字]
 ```
 
 但是我在本地搭建了一个RocketMQ,是可以正常投递的.
-
 
 
 TODO 画一些交互图,时序图 来记录动态运行的流程.

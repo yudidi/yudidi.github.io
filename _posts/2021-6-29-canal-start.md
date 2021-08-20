@@ -36,7 +36,7 @@ https://zhuanlan.zhihu.com/p/345736518
 
 ## Q: intances消费日志出现: No route info for this topic, [MQ实例]%[topic名字]
 ```
-Caused by: java.lang.RuntimeException: org.apache.rocketmq.client.exception.MQClientException: No route info for this topic, MQ_INST_1204765431532768_BcSmMA54%aplum_t_product_attr_value
+Caused by: java.lang.RuntimeException: org.apache.rocketmq.client.exception.MQClientException: No route info for this topic, xxxxx%yyyyyy
 ```
 ```
 Caused by: java.lang.RuntimeException: org.apache.rocketmq.client.exception.MQClientException: No route info for this topic, [MQ实例]%[topic名字]
