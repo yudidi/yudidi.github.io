@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Go的http请求成功,响应码200,但是读取body报超时错误
+title: Go的http请求成功,响应码200,但是读取body报超时
 ---
 
 # 背景
@@ -31,7 +31,34 @@ if respCode == 200 {
     }
 ```
 
-# 原因TODO
+# 原因
+// 附录1
+
+1.客户端读取超时：已建立好连接，已经开始返回数据，但是body 太大太慢：
+
+2.[源码注释](https://github.com/golang/go/blob/2bc8d90fa21e9547aeb0f0ae775107dc8e05dc0a/src/net/http/client.go#L104)
+
+/usr/local/go/src/net/http/client.go:56
+```go
+type Client struct {
+	// Timeout specifies a time limit for requests made by this
+	// Client. The timeout includes connection time, any
+	// redirects, and reading the response body. The timer remains
+	// running after Get, Head, Post, or Do return and will
+	// interrupt reading of the Response.Body.
+	//
+	// A Timeout of zero means no timeout.
+	//
+	// The Client cancels requests to the underlying Transport
+	// as if the Request's Context ended.
+	//
+	// For compatibility, the Client will also use the deprecated
+	// CancelRequest method on Transport if found. New
+	// RoundTripper implementations should use the Request's Context
+	// for cancellation instead of implementing CancelRequest.
+	Timeout time.Duration
+}
+```
 
 # 处理方案
 增加Timeout
