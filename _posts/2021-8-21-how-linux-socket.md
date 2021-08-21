@@ -3,7 +3,6 @@ layout: post
 title: 从⽤户进程创建socket,到⼀个⽹络包抵达⽹卡到被⽤户进程接收到的总体流程:
 ---
 
-
 # 背景
 在分析粘包和半包问题时,对于Go net包下的Client的Read和Write方法的底层原理产生了一些疑问`,
 
