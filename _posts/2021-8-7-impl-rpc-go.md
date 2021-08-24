@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 研究一下RPC的底层原理
+permalink: /categories/rpc/
 ---
 
 # 背景
@@ -17,3 +18,4 @@ RPC通信过程代码流程
 1.
 2.
 3.[Go net/rpc 包的深度解读和学习](https://cloud.tencent.com/developer/article/1662215)
+4.[这里有一篇,Java系列的RPC框架,是基于Netty搭建网络模块的: 一起写RPC框架（三）RPC网络模块的搭建一 网络传输模型](https://blog.csdn.net/linuu/article/details/52213911)

@@ -38,6 +38,9 @@ title: Github+Jekyll+gitment 搭建个人博客(带评论系统)
 第一个成功的评论:
 https://yudidi.github.io/pprof-heap-alloc/
 
+# 2021-08-24 增加导航和分类
+// 附录5,6
+
 # 附录
 1.[按照这个博客说的做](https://www.jianshu.com/p/95646037acdc/)
 
@@ -46,3 +49,7 @@ https://yudidi.github.io/pprof-heap-alloc/
 3.[在Jekyll博客添加评论系统：gitment篇](https://jacobpan3g.github.io/cn/2017/07/17/gitment-in-jekyll/#2-%E5%9C%A8jekyll%E5%8D%9A%E5%AE%A2%E8%B0%83%E7%94%A8gitment)
 
 4.[本篇博客的源文件在这里,遇到问题可以参考我的源文件和历史提交记录,都是透明开源的](https://github.com/yudidi/yudidi.github.io/blob/master/_posts/2021-5-10-Hello-World.md)
+
+5.[手把手教你使用jekyll正确设置文章分类导航栏](http://yaolingxin.gitee.io/lingxin_jekyll/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/2019/07/02/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-jekyll.html)
+
+6.[jekyll如何写一个导航栏？](https://www.zhihu.com/question/304995960)
