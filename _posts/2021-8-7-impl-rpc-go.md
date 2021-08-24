@@ -3,6 +3,8 @@ layout: post
 title: 研究一下RPC的底层原理
 categories:
      - rpc
+ permalink: /categories/rpc/
+ taxonomy: rpc    
 ---
 
 # 背景
