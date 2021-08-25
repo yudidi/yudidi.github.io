@@ -33,3 +33,4 @@ TODO
 # 附录
 1.[15 | 基础篇：Linux内存是怎么工作的？虚拟地址(内核空间和用户空间)+缺页异常+物理内存](https://time.geekbang.org/column/article/74272)
 2.[一个程序最多可以使用多少内存？-操作系统还要占用内存](https://blog.csdn.net/weixin_42709563/article/details/106234230)
+3.[Linux 内存相关问题汇总-malloc申请内存的流程-TODO](https://mp.weixin.qq.com/s/Rrx_5XFU3bz0VAVBIcd1rA)
