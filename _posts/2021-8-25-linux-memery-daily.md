@@ -18,6 +18,11 @@ A: 我记得可以申请无限制的
 ![_config.yml]({{ site.baseurl }}/images/content/20210825-linux-malloc-mem.png)
 
 # 如何查看内存使用情况
+// 附录1
+
+* 64位的Linux默认占用256TB中的128TB，程序只能使用剩下的128TB。
+// 附录2
 
 # 附录
 1.[15 | 基础篇：Linux内存是怎么工作的？虚拟地址(内核空间和用户空间)+缺页异常+物理内存](https://time.geekbang.org/column/article/74272)
+2.[一个程序最多可以使用多少内存？-操作系统还要占用内存](https://blog.csdn.net/weixin_42709563/article/details/106234230)
