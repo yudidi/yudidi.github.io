@@ -53,3 +53,5 @@ https://yudidi.github.io/pprof-heap-alloc/
 5.[手把手教你使用jekyll正确设置文章分类导航栏](http://yaolingxin.gitee.io/lingxin_jekyll/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/2019/07/02/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-jekyll.html)
 
 6.[jekyll如何写一个导航栏？](https://www.zhihu.com/question/304995960)
+搭建导航遇到一些问题,需要更多的理解Jekyll
+[搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html)
