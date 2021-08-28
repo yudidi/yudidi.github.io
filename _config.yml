@@ -39,8 +39,8 @@ plugins:
 owner:
   name: 余滴滴
   avatar: avatar.png
-  job: "Used Java,Now A Gopher"
-  bio: "毕业于四川师范大学计算机专业,软件工程的世界那么大,一起去看看"
+  job: "A Programmer"
+  bio: "软件的世界那么大,一起去看看"
   email: 872656027@qq.com
   disqus-shortname: #username
   twitter:  #username
