@@ -86,21 +86,5 @@ layout: default
         id: location.pathname,      // 请确保你的 location 连接小于 50 个字符，否则，插件会生成失败
         distractionFreeMode: false  // 专注模式
     })
-
     gitalk.render('gitalk-container')
-</script>
-
-<div id="gitmentContainer"></div>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-    var gitment = new Gitment({
-        owner: 'sicnuyudidi',
-        repo: 'blog_comment',
-        oauth: {
-            client_id: '7ab9f3aa6d594a747d49',
-            client_secret: '66a467d32c34f17cd234db61fbb7f6e99602baaf',
-        },
-    });
-    gitment.render('gitmentContainer');
 </script>
