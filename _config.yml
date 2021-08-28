@@ -38,7 +38,7 @@ plugins:
 #
 owner:
   name: zhujiajun
-  avatar: https://raw.githubusercontent.com/yudidi/yudidi.github.io/master/images/ydd-logo.png
+  avatar: avatar.png
   job: "Java & Scala Developer"
   bio: "A backend developer who loves design awesome things. Working for Dianping at in Shanghai, China."
   email: zhujiajun.me@gmail.com

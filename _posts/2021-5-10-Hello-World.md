@@ -56,4 +56,4 @@ https://yudidi.github.io/pprof-heap-alloc/
 搭建导航遇到一些问题,需要更多的理解Jekyll
 7.[搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html)
 祭出大绝招.搞了半天没搞出来,切换思路. 参考附录7的末尾,提到了 `至此，最简单的Blog就算搭建完成了。进一步的完善，请参考Jekyll创始人的示例库，以及其他用Jekyll搭建的blog`
-所以我准备,参考一个有导航和评论的现成博客,源码全部复用即可.
+所以我准备,参考[一个有导航和评论的现成博客](https://zjiajun.github.io/),源码全部复用即可.
