@@ -3,18 +3,18 @@
 # Site wide configuration
 ####################################
 #
-title: zhujiajun
-email: zhujiajun.me@gmail.com
-description: zhujiajun's blog,powered by jekyll.
-url: https://zjiajun.github.io # the base hostname & protocol for your site
-keywords: ["jekyll", "java", "scala","blog"]
+title: 余滴滴
+email: 972656027@qq.com
+description: 技术博客
+url: https://yudidi.github.io # the base hostname & protocol for your site
+keywords: ["jekyll", "go", "micro-services","blog","mrigrate"]
 
 #
 ###################################
 # Jekyll configuration
 ####################################
 #
-timezone:          Asia/Shanghai
+timezone:          Asia/BeiJing
 markdown:          kramdown
 highlighter:       rouge
 excerpt_separator: <!--more-->
