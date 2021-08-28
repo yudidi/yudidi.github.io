@@ -72,9 +72,10 @@ layout: default
 {% include disqus.html %}
 {% endif %}
 
-<div id="gitalk-container"></div>
-
 <!--另一个评论系统-->
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 <script>
     var gitalk = new Gitalk({
         clientID: '7ab9f3aa6d594a747d49',
