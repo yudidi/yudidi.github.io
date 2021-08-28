@@ -1,8 +1,8 @@
 ---
 layout: post
 title: 研究一下RPC的底层原理
-categories: [spring]
-tags: [spring]
+categories: [RPC原理]
+tags: [RPC原理]
 ---
 
 # 背景
