@@ -37,11 +37,11 @@ plugins:
 ####################################
 #
 owner:
-  name: zhujiajun
+  name: 余滴滴
   avatar: avatar.png
-  job: "Java & Scala Developer"
-  bio: "A backend developer who loves design awesome things. Working for Dianping at in Shanghai, China."
-  email: zhujiajun.me@gmail.com
+  job: "Used Java,Now A Gopher"
+  bio: "毕业于四川师范大学计算机专业,软件工程的世界那么大,一起去看看"
+  email: 872656027@qq.com
   disqus-shortname: #username
   twitter:  #username
   facebook: #username
@@ -53,7 +53,7 @@ owner:
     ad-slot:
   bing-verify:
   github: yudidi #username
-  stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
+  stackoverflow: 7689674/yudidi #123456/username   from a "http://stackoverflow.com/users/123456/username" link
   linkedin: #username
   xing: #username
   instagram: #username
