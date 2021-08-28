@@ -38,9 +38,10 @@ title: Github+Jekyll+gitment 搭建个人博客(带评论系统)
 第一个成功的评论:
 https://yudidi.github.io/pprof-heap-alloc/
 
-# 2021-08-24 增加导航和分类
+# 2021-08-24 增加导航和分类,但是没成功,跳过
 // 附录5,6
 
+# 2021-08-28 通过全站COPY,照搬某站点的文章组织方式:导航和分类。同时用gitalk替换gitment评论系统
 # 附录
 1.[按照这个博客说的做](https://www.jianshu.com/p/95646037acdc/)
 
