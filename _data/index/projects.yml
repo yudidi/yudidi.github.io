@@ -1,4 +1,5 @@
-- name: leonids
-  descr: "Bacon ipsum dolor sit amet doner meatball jowl short ribs, chicken prosciutto salami frankfurter. Pig drumstick turducken short ribs, brisket meatloaf ham hock shankle andouille corned beef strip steak. Venison ham bresaola strip steak. Pork belly ribeye prosciutto t-bone."
+- name: Programming Questions Recommendation System (牛客网试题推荐系统)
+  descr: 1.This is my graduation design.
+         2. It is a recommendation system of programming question. And its Chinese name is "牛客网试题推荐系统".
   image: pong.png
-  github: https://github.com/renyuanz/leonids
+  github: https://github.com/yudidi/QuestionRecommendation
