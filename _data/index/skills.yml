@@ -2,5 +2,5 @@
 
 label: Ability
 id : cs
-aspects: GO, MySQL, Design, English, JAVA
-percentage: 70, 60, 50, 70, 30
+aspects: GO, MySQL, Design, English, ES
+percentage: 80, 60, 70, 70, 60
