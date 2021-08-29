@@ -1,15 +1,23 @@
 # careers section data
 # if you don't have language feature(language.yml is empty), ignore "i18n" items
-- name: Dianping
-  link: http://www.dianping.com/
-  date: Jan 2017 - <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
-  job: Java Developer
+- name: 致美生活科技有限公司(红布林,二手电商),业务中台组GO研发(北京)
+  link:
+  date: 2020.04 - <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
+  job: Gopher
 
-- name: Madhouse
-  link: http://www.madhouse.cn/
-  date: Mar 2015 - Jan 2017
-  job: Java Developer
+- name: 北京新工场投资顾问有限公司(她理财),GO研发(北京)
+  link:
+  date: 2019.04-2019.12
+  job: Gopher
 
-- name: Chexiang
-  link: http://www.chexiang.com/
-  date: Jul 2014 - Mar 2015
+- name: 北京华信傲天网络技术有限公司, 云平台微服务研发(Java/Go)(成都)
+  link:
+  date: 2018.02-2019.03
+
+- name: 四川威斯派克科技有限公司, 软件开发工程师(Java/.NET)(成都)
+  link:
+  date: 2017.07-2017.11
+
+- name: ThingGeo,外企实习(C#)
+  link: https://thinkgeo.com/
+  date: 2017夏秋
