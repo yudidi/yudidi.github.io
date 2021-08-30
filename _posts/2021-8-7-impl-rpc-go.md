@@ -1,12 +1,22 @@
 ---
 layout: post
-title: 研究一下RPC的底层原理
-categories: [RPC原理]
-tags: [RPC原理]
+title: 自己动手写RPC(一)-需求篇
+categories: [自己动手写RPC系列]
+tags: [自己动手写RPC系列]
 ---
 
 # 背景
 看了一篇自己动手写RPC框架的博客,觉得通过造轮子来学习的方式很好。
+
+# 立项
+假设,现在你有1个进程
+
+# What:什么是RPC
+
+
+# Why:为什么需要RPC
+
+## 你想想，如果没有 RPC 框架，那你要怎么调用另外一台服务器上的接口呢?
 
 # 主要内容
 Go的几种RPC实现
