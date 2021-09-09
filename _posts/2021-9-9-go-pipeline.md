@@ -14,5 +14,7 @@ tags: [Go]
 
 发现可以采用这个模式进行处理，提升性能。
 
+# Q:什么业务可以 fan out and fan in(merge)
+
 # 附录
 1.[GO编程模式：PIPELINE](https://coolshell.cn/articles/21228.html#Channel_%E7%AE%A1%E7%90%86)
