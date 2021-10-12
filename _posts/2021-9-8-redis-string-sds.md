@@ -5,4 +5,6 @@ categories: [Redis]
 tags: [Redis]
 ---
 
+在redis中，所有的键值对都会用内置的哈希表保存在内存里??? TODO
+
 # 附录
