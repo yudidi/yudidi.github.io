@@ -22,7 +22,12 @@ title: Nginx失败重试机制
 2021/10/18 16:48:29 [error] 2828#0: *88397155 connect() failed (111: Connection refused) while connecting to upstream, client: 49.7.38.70, server: open.aplum.com, request: "GET /adds/weibo-notify?微博广告监测链接", host: "xxx.xxx.com"
 ```
 
-# 重试的具体过程
+# 重试的具体过程(待验证)
+
+```文档
+If an error occurs during communication with a server, the request will be passed to the next server, and so on until all of the functioning servers will be tried. If a successful response could not be obtained from any of the servers, the client will receive the result of the communication with the last server.
+```
 
 # 附录
 1.[Nginx失败重试机制](https://zhuanlan.zhihu.com/p/127959800)
+2.[Module ngx_http_upstream_module](http://nginx.org/en/docs/http/ngx_http_upstream_module.html#upstream)
