@@ -1,6 +1,6 @@
 ---
 layout: post
-title: mysql-sql.DB-SetMaxOpenConns和SetMaxIdleConns
+title: mysql-sql.DB-SetMaxOpenConns和SetMaxIdleConns,SetConnMaxLifetime
 ---
 
 # 背景
