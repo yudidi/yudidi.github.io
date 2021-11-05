@@ -19,3 +19,8 @@ MySQL服务器里有专门的TCP连接池限制接数，采用长连接模式复
 [golang tcp连接池](https://github.com/nange/easypool)
 
 [golang server epoll client 使用连接池 15万+ qps](https://segmentfault.com/a/1190000019736068)
+
+
+# mysql群,面试问题
+## Q: Mysql内部会有连接池这种机制吗？
+
