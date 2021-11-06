@@ -34,10 +34,25 @@ mysql抓包能看到先发包过去编译sql
 [云数据库RDS的MySQL版无法查询performance_schema值](https://help.aliyun.com/document_detail/41726.html)
 
 
+# 查看max_prepared_stmt_count的使用量是否正常
+//附录1.1
+请确认Com_stmt_close的值是否接近于Com_stmt_prepare 
+
+命令: show global status like 'com_stmt%';
+结果:
+Com_stmt_close	31552809
+Com_stmt_execute	31552885
+Com_stmt_fetch	0
+Com_stmt_prepare	31552938
+Com_stmt_reprepare	0
+Com_stmt_reset	0
+Com_stmt_send_long_data	0
+
+
 # 参考
 1.[database/sql: Stmt的使用以及坑](https://studygolang.com/articles/1795)
 
-[请确认Com_stmt_close的值是否接近于Com_stmt_prepare -- 一个可能的原因是应用端那边没有关闭prepared的语句](https://blog.csdn.net/vkingnew/article/details/80972823)
+1.1[请确认Com_stmt_close的值是否接近于Com_stmt_prepare -- 一个可能的原因是应用端那边没有关闭prepared的语句](https://blog.csdn.net/vkingnew/article/details/80972823)
 
 2.[PreparedStatement的原理](https://www.geek-share.com/detail/2693287038.html)
 
