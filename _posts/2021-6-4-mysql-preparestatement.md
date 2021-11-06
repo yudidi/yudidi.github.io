@@ -37,7 +37,7 @@ mysql抓包能看到先发包过去编译sql
 # 参考
 1.[database/sql: Stmt的使用以及坑](https://studygolang.com/articles/1795)
 
-[](https://blog.csdn.net/vkingnew/article/details/80972823)
+[请确认Com_stmt_close的值是否接近于Com_stmt_prepare -- 一个可能的原因是应用端那边没有关闭prepared的语句](https://blog.csdn.net/vkingnew/article/details/80972823)
 
 2.[PreparedStatement的原理](https://www.geek-share.com/detail/2693287038.html)
 
