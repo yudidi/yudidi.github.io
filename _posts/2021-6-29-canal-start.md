@@ -75,11 +75,19 @@ A:原因 未配置阿里云RocketMQ的访问密钥 ak/sk
 
 3. 启动instance
 
+
+# 2021-11-10 更新
+对canal有了一定的线上维护经验,准备做一次分享,所以进一步学习一下架构设计。
+
+## Q:1个数据库实例,监听多个表,使用1个instance。那么通过新增instance(每个表1个instance)可以提升canal的消费能力吗?
+A: 
+
+// 附录7
+
 # 参考
 1.[阿里开源MySQL中间件Canal快速入门](https://blog.csdn.net/qqxx6661/article/details/106039464)
 
 2.[开源实战 | Canal生产环境常见问题总结与分析](https://cloud.tencent.com/developer/article/1645881)
-
 TODO
 3.[一文详解 Canal Instance 设计理念与定制开发思路-Instance 是 Canal 数据同步的核心，在一个 Canal 实例中只有启动 Instace，才能实现数据的同步](https://bbs.huaweicloud.com/blogs/218136)
 
@@ -88,3 +96,5 @@ TODO
 5.[阿里Canal配置内容详解](https://my.oschina.net/u/585635/blog/4436514)
 
 6.[Canal v1.1.4版本避坑指南](https://mp.weixin.qq.com/s/U8tTO4OS9idx08exCD0rug)
+
+7.[数据同步中间件canal架构设计](https://blog.csdn.net/fangmeng1997/article/details/104949573)
