@@ -20,6 +20,65 @@ tags: [性能优化]
 
 Q1. 为什么可以2节点可以运行2年多，很少出问题?
 // TODO
+附录1:  `minimum_master_nodes`设定对你的集群的稳定极其重要。设置成1可以保证集群的功能，但是就无法防止集群脑裂了
+```
+GET /_cluster/settings
+响应如下:
+{
+  "persistent" : {
+    "cluster" : {
+      "routing" : {
+        "allocation" : {
+          "node_concurrent_incoming_recoveries" : "1",
+          "node_concurrent_recoveries" : "1",
+          "exclude" : {
+            "_ip" : ""
+          },
+          "enable" : "all"
+        }
+      }
+    },
+    "search" : {
+      "isolator" : {
+        "enabled" : "true"
+      },
+      "max_buckets" : "10000"
+    },
+    "monitoring" : {
+      "collector" : {
+        "kmonitor" : {
+          "enabled" : "true"
+        }
+      }
+    },
+    "discovery" : {
+      "zen" : {
+        "minimum_master_nodes" : "2" // 这里的配置
+      }
+    }
+  },
+  "transient" : {
+    "cluster" : {
+      "routing" : {
+        "allocation" : {
+          "node_concurrent_incoming_recoveries" : "1",
+          "cluster_concurrent_rebalance" : "6",
+          "node_concurrent_recoveries" : "1",
+          "exclude" : {
+            "_ip" : ""
+          }
+        }
+      }
+    },
+    "indices" : {
+      "recovery" : {
+        "max_bytes_per_sec" : "50mb"
+      }
+    }
+  }
+}
+
+```
 
 Q2. 2节点时出问题怎么办的?
 // TODO
@@ -62,3 +121,6 @@ es机器配置升级前后-cpu使用率对比
 
 内存和磁盘都够用
 ![_config.yml]({{ site.baseurl }}/images/content/20211119-es-配置升级-内存和磁盘都够用.png)
+
+# 参考
+1.[Elasticsearch: 权威指南 » 管理、监控和部署 » 部署 » 重要配置的修改-最小主节点数](https://www.elastic.co/guide/cn/elasticsearch/guide/current/important-configuration-changes.html)
