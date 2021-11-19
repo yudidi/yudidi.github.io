@@ -1,6 +1,6 @@
 ---
 layout: post
-title: es配置升级的经历-通过升级硬件的性能优化
+title: es配置升级的经历
 categories: [性能优化]
 tags: [性能优化]
 ---
