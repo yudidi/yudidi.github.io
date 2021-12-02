@@ -1,8 +1,8 @@
 ---
 layout: post
 title: redis hash的使用场景
-categories: [Go]
-tags: [Go]
+categories: [redis]
+tags: [redis]
 ---
 
 # 背景
@@ -14,3 +14,4 @@ tags: [Go]
 
 # 参考
 1.[Redis 几种数据类型及应用场景](https://juejin.cn/post/6844903951502934030)
+2.[键值对采用不同类型保存时的内存开销](https://time.geekbang.org/column/article/279649?cid=100056701)
