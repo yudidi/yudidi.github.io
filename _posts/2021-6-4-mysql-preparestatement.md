@@ -48,6 +48,22 @@ Com_stmt_reprepare	0
 Com_stmt_reset	0
 Com_stmt_send_long_data	0
 
+# 2021-01-11更新
+今天升级mysql8。依然出现了如下错误:
+
+```
+"error":"Error 1461: Can't create more than max_prepared_stmt_count statements (current value: 16382)"
+```
+
+查看阿里云后台主库配置是49146,从库配置还是16382。
+
+问了下运维:只改了主库，忘了改从库了。
+
+设置从库参数即可。
+
+# // 附录4
+Com_stmt_prepare 减去 Com_stmt_close 大于 max_prepared_stmt_count 就会出现这种错误。那么我们手动调高max_prepared_stmt_count（取值范围：0 - 1048576，默认16382）即可解决
+
 
 # 参考
 1.[database/sql: Stmt的使用以及坑](https://studygolang.com/articles/1795)
@@ -61,3 +77,5 @@ Com_stmt_send_long_data	0
 [](https://www.cnblogs.com/micrari/p/7112781.html)
 
 3.[mysql_stmt含义_Mysql--由prepared sql statement引发的问题](https://blog.csdn.net/weixin_39927623/article/details/114825698)
+
+4.[max_prepared_stmt_count 问题与Sysbench 工具简介](https://zhuanlan.zhihu.com/p/67188414)
