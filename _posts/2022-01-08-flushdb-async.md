@@ -21,5 +21,10 @@ lazyfree使用
 # 公司redis版本
 redis-5.0_0.5.7
 
+# flushdb async
+对于清空数据库命令flushall/flushdb，添加了async异步清理选项，使得redis在清空数据库时都是异步操作。
+
+实现逻辑是为数据库新建一个新的空的字典，把原有旧的数据库字典给后台线程来逐一删除其中的数据，释放内存。
+
 # 参考
 1.[[redis学习笔记]redis4.0新特性-非阻塞删除](https://luoming1224.github.io/2018/11/11/%5Bredis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%5Dredis4.0%E6%96%B0%E7%89%B9%E6%80%A7-%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%88%A0%E9%99%A4/)
