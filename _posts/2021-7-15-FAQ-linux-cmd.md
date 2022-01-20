@@ -33,5 +33,19 @@ ps -ef | grep tomcat
 netstat -nltp | grep 11694
 
 
+# 查看谁正在使用某个文件(用户+进程)
+// 附录2,3,4
+```json
+[xxx@pre pre-price-srv]$ lsof pre-price-srv
+COMMAND     PID  USER  FD   TYPE DEVICE SIZE/OFF    NODE NAME
+pre-price 13569 xxx txt    REG 253,17 83395167 2382348 pre-price-srv
+pre-price 13570 xxx txt    REG 253,17 83395167 2382348 pre-price-srv
+```
+
+使用fuser来查文件或目录被谁占用
+
 # 参考
 1.[34 | 关于 Linux 网络，你必须知道这些（下）](https://time.geekbang.org/column/article/81057)
+2.[linux查文件被哪些程序占用—fuser和lsof的使用](https://blog.csdn.net/happyteafriends/article/details/12993691)
+3.[lsof命令使用场景](https://blog.csdn.net/dengbixuan/article/details/106817389)
+4.[fuser=使用文件或文件结构识别进程](https://wangchujiang.com/linux-command/c/fuser.html)
