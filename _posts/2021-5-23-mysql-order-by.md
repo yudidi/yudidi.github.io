@@ -1,6 +1,8 @@
 ---
 layout: post
-title: mysql面试题:order by是怎么实现的 TODO
+title: mysql面试题:orderby是怎么实现的 && MySQL默认是主键排序吗?
+categories: [mysql]
+tags: [mysql]
 ---
 
 ![_config.yml]({{ site.baseurl }}/images/content/mysql-interview.png)
@@ -22,5 +24,5 @@ mysql是否存在默认按照主键升序排序的情况
 # 结论
 
 # 参考 
-1.[深究 mysql 默认排序， order by 的顺序](https://zhuanlan.zhihu.com/p/150921981)
-2.[MySQL 默认排序真的是按主键来排序的吗](https://segmentfault.com/a/1190000016251056)
+1.[深究mysql默认排序，order by的顺序](https://zhuanlan.zhihu.com/p/150921981)
+2.[MySQL默认排序真的是按主键来排序的吗](https://segmentfault.com/a/1190000016251056)
