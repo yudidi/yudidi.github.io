@@ -134,10 +134,14 @@ Commands:
 archery每执行一个sql,就会在备份库里生成对应的sql语句，而且产生的回滚语句都是针对一行的，
 所以今天的大表的删除语句产生的回滚sql应是2千多万行，导致磁盘占用从75G变为100G，基本对得上。
 
+
+# 附录6:
+du -lh --max-depth=1 |sort -n
+
 # 参考
 1.[linux磁盘已满，查看哪个文件占用多](https://blog.csdn.net/a854517900/article/details/80824966)
 2.[goInception Docs-TODO回滚机制](https://hanchuanchuan.github.io/goInception/#architecture)
 3.[docker compose 几个命令](https://yeasy.gitbook.io/docker_practice/compose/commands#stop)
 4.[docker compose down命令的作用](https://maizitoday.github.io/post/docker%E7%B3%BB%E5%88%97-compose/#down)
-5.[Inception 备份功能说明
-](https://inception-document.readthedocs.io/zh_CN/latest/backup/)
+5.[Inception 备份功能说明](https://inception-document.readthedocs.io/zh_CN/latest/backup/)
+6.[Linux查看文件或文件夹大小: du命令](https://blog.csdn.net/duan19920101/article/details/104823301)
