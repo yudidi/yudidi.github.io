@@ -49,6 +49,14 @@ CREATE TABLE `t` (
 [mysql sharding 官方_GitHub - endink/go-sharding: Mysql 分库分表中间件](https://blog.csdn.net/weixin_39548541/article/details/113594049)
 [小米开源数据库中间件Gaea实战（有彩蛋）](https://dbaplus.cn/news-11-2645-1.html)
 
+## 2022-02-08更新:分库分表的步骤 
+// 附录11
+我在公司内部一直奉承的重构思路:步子大了小心扯着蛋.
+
+1.搜集sql,得出分库,分表或分区键
+2.如果要水平分表，需要寻找自增id的替代。这种情况可以先去掉数据库中自增ID，为分片和后面的数据迁移工作提前做准备。 // 小步前进
+3.双写
+
 ## 2.冷热分离的方案
 分库分表会导致多个业务线和统计业务的编码复杂化,所以不考虑分库分表,采用一种类似冷热分离的思路: 使用2个表。
 
@@ -93,7 +101,63 @@ A(我): 还在调研,暂未考虑。
 ## Q: 全量表三年以后不是要有50亿,30亿数据还怎么查?
 A: 估计分库分表我要重新考虑下,在多个群被质疑了
 
+
+# 今年又进行了表数据的清理
+因为今年升级了mysql8.0
+// 附录3
+
+# 表碎片清理
+附录4,5
+查看碎片率
+```sql
+SELECT CONCAT(table_schema, '.', table_name)                   AS  TABLE_NAME
+      ,engine                                                  AS  TABLE_ENGINE 
+      ,table_type                                              AS  TABLE_TYPE
+      ,table_rows                                              AS  TABLE_ROWS
+      ,CONCAT(ROUND(data_length  / ( 1024 * 1024), 2), 'M')    AS  TB_DATA_SIZE 
+      ,CONCAT(ROUND(index_length / ( 1024 * 1024), 2), 'M')    AS  TB_IDX_SIZE 
+      ,CONCAT(ROUND((data_length + index_length ) 
+            / ( 1024 * 1024 ), 2), 'M')                        AS  TOTAL_SIZE
+      ,CASE WHEN  data_length =0 THEN 0
+            ELSE  ROUND(index_length / data_length, 2) END     AS  TB_INDX_RATE
+    ,CONCAT(ROUND( data_free / 1024 / 1024,2), 'MB')           AS  TB_DATA_FREE 
+    ,CASE WHEN (data_length + index_length) = 0 THEN 0
+             ELSE ROUND(data_free/(data_length + index_length),2) 
+     END                                                       AS  TB_FRAG_RATE
+FROM information_schema.TABLES  
+ORDER BY data_free DESC;
+```
+
+# 分库分表再提
+// 附录6
+业务增长,数据量增长,准备做一些分库分表的事情
+
+
+# PolarDB-X如何解决不走分表键值对导致全表扫描的问题
+// 附录8,9
+mysql单索引下二级索引的原理:
+
+分布式二级索引原理:
+
 # 附录
 1.[MySQL查看数据库表容量大小-3.查看指定数据库容量大小](https://blog.csdn.net/fdipzone/article/details/80144166)
 
 2.[首页 > PolarDB-X 云原生分布式数据库 > 技术白皮书 > 技术原理](https://help.aliyun.com/document_detail/261147.html?spm=a2c4g.11186623.2.8.285b7942kkETra)
+
+3.[MySQL8.0的information_schema.tables信息不准确怎么办](https://blog.csdn.net/w892824196/article/details/103973377)
+
+4.[mysql - information_schema.TABLES.DATA_FREE 在 MySQL 中是什么意思？](https://www.coder.work/article/145964)
+
+5.[MySQL表碎片化（Table Fragmentation）的原因]()
+
+6.[超详细的mysql分库分表方案](https://blog.csdn.net/agonie201218/article/details/110823552)
+
+7.[淘宝双11达到百亿级数据分表后，怎么实现分页查询？](https://blog.csdn.net/BF02jgtRS00XKtCx/article/details/109634540)
+
+8.[PolarDB-X-全局二级索引.基本原理](https://help.aliyun.com/document_detail/182179.html)
+
+9.[PolarDB-X什么样的技术，才能让你“忘掉”分区键这个东西呢。-二级索引与分区键](https://zhuanlan.zhihu.com/p/440801781)
+
+10.[PolarDB-X-分库分表子句和参数](https://help.aliyun.com/document_detail/316575.html#title-663-dqa-9a1)
+
+11.[分库分表带来的问题-我们的系统真的需要分库分表吗？-这种情况可以先去掉数据库中自增ID，为分片和后面的数据迁移工作提前做准备](https://www.cnblogs.com/wade-luffy/p/6096578.html)
