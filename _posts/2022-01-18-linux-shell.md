@@ -41,6 +41,7 @@ heathCheck() {
 
 3.批量给某个目录下后缀sh的文件执行命令.
 // 附录2
+// 附录5
 ```bash
 # 批量给sh的文件赋权限
 find . -name '*.sh' -exec chmod +x {} \;
@@ -68,3 +69,4 @@ sed -i -e 's/123/456/g' sedtest.txt
 2.[每天一个Linux命令（20）--find命令之exec](https://www.cnblogs.com/aaronax/p/5618024.html)
 3.[使用sed -i --和sed -i -e 搜尋與取代文字](https://balian-ear.medium.com/%E4%BD%BF%E7%94%A8sed-i-%E5%92%8Csed-i-e-%E6%90%9C%E5%B0%8B%E8%88%87%E5%8F%96%E4%BB%A3%E6%96%87%E5%AD%97-74808dc91bb2)
 4.[Linux sed 命令--和使用示例](https://www.runoob.com/linux/linux-comm-sed.html)
+5.[`find <path> -name "*.sh" -exec chmod +x \{\} \;` 是如何工作的？](https://stackoverflow.com/questions/64401299/how-does-find-path-name-sh-exec-chmod-x-work)
