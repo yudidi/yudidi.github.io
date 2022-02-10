@@ -37,6 +37,9 @@ Filesystem                                      Size  Used Avail Use% Mounted on
 /data/aplum/Archery-1.7.10/src/docker-compose  占用很大
 ```
 
+du -lh --max-depth=1 |sort -n
+
+
 * 3.然后看哪个目录占用多,再通过 `du -s 怀疑的路径 | sort -nr` 一层层排查，找到占用文件多的地方。
 
 我今天发现的问题是`/data/aplum/Archery-1.7.10/src/docker-compose/mysql/datadir/`
@@ -136,6 +139,8 @@ archery每执行一个sql,就会在备份库里生成对应的sql语句，而且
 
 
 # 附录6:
+统计当前文件夹(目录)大小，并按文件大小排序：
+du -sh * | sort -n
 du -lh --max-depth=1 |sort -n
 
 # 参考

@@ -6,7 +6,7 @@ title: mysql-sql.DB-SetMaxOpenConns和SetMaxIdleConns,SetConnMaxLifetime
 # 背景
 线上一个定时任务,使用gorm框架,读写阿里云RDS,在创建连接和udpate操作中时不时出现这个错误
 
-```shell
+```cmd
 [mysql] 2021/08/01 18:30:31 packets.go:37: read tcp 172.17.0.3:48356->172.16.0.25:3306: i/o timeout
 panic: 定时改价任务报警: invalid connection; invalid connection,update price,pid:6809290
 ```
