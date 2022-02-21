@@ -57,3 +57,5 @@ golang面试题：能说说uintptr和unsafe.Pointer的区别吗？
 缓冲区所有数据包都发送完成才会发送FIN包
 
 发送RST包关闭连接时，不必等缓冲区的包都发出去，直接就丢弃缓存区的包发送RST包。而接收端收到RST包后，也不必发送ACK包来确认。
+
+5.[实战Go内存泄露](https://segmentfault.com/a/1190000019222661)
