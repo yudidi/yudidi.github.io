@@ -58,4 +58,7 @@ golang面试题：能说说uintptr和unsafe.Pointer的区别吗？
 
 发送RST包关闭连接时，不必等缓冲区的包都发出去，直接就丢弃缓存区的包发送RST包。而接收端收到RST包后，也不必发送ACK包来确认。
 
-5.[实战Go内存泄露](https://segmentfault.com/a/1190000019222661)
+
+5.[实战Go内存泄露](https://segmentfault.com/a/1190000019222661) 
+-- 2022-02-21更新
+// 内部项目(notify-srv-codeup)存在携程泄漏 4188ece1 jzw <xxxx@qq.com> on 2022/2/18 at 2:07 下午
