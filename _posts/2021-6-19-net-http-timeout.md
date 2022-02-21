@@ -1,6 +1,8 @@
 ---
 layout: post
-title: 【转载】i/o timeout,希望你不要踩到这个net/http包的坑
+title: 【转载】i/o timeout,希望你不要踩到这个net/http包的坑:Go内存泄露
+categories: [go]
+tags: [go]
 ---
 
 这篇博客从常见的`i/o timeout`现象入手,
