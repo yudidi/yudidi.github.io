@@ -53,6 +53,11 @@ find . -name '*.sh' -exec chmod +x {} \;
 ```bash
 #对发布的文件/做一些处理，版本号替换，修改权限等
 sed -i -e "s/__BUILD_VERSION__/$VERSION/" bin/*.sh
+
+# 当我想替换文件中的路径时，使用转义符号（\）会比较麻烦且可读性很差。
+# 比如要将abc.sh中的/a/b/c替换成/d/e/f，命令如下：
+# 分隔符由/换成#（其他字符也可以，只要跟在s命令后面即可）：
+sed -i 's#/a/b/c#/d/e/f#g'
 ```
 
 4.1 有的sed -i -e的参数末尾有个/g
@@ -70,3 +75,4 @@ sed -i -e 's/123/456/g' sedtest.txt
 3.[使用sed -i --和sed -i -e 搜尋與取代文字](https://balian-ear.medium.com/%E4%BD%BF%E7%94%A8sed-i-%E5%92%8Csed-i-e-%E6%90%9C%E5%B0%8B%E8%88%87%E5%8F%96%E4%BB%A3%E6%96%87%E5%AD%97-74808dc91bb2)
 4.[Linux sed 命令--和使用示例](https://www.runoob.com/linux/linux-comm-sed.html)
 5.[`find <path> -name "*.sh" -exec chmod +x \{\} \;` 是如何工作的？](https://stackoverflow.com/questions/64401299/how-does-find-path-name-sh-exec-chmod-x-work)
+6.[sed替换内容中有斜杠该怎么处理](https://blog.csdn.net/xingjingb/article/details/118075915)
