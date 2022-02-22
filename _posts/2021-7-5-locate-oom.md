@@ -1,6 +1,8 @@
 ---
 layout: post
 title: prometheus使用错误导致监控指标大量增长导致OOM复盘总结
+categories: [pprof]
+tags: [pprof]
 ---
 
 # 钉钉群里收到报警信息
