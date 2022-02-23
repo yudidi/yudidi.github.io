@@ -1,6 +1,6 @@
 ---
 layout: post
-title:【关于新同事接手新项目的一点思考】
+title: 关于新同事接手新项目的一点思考
 categories: [如何接手新项目]
 tags: [如何接手新项目]
 ---

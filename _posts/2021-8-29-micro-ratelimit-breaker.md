@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 日常吐槽: 限流熔断如何做,谁来做
+title: 日常吐槽 限流熔断如何做,谁来做
 categories: [go-micro]
 tags: [go-micro]
 ---
