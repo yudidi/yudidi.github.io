@@ -1,8 +1,8 @@
 ---
 layout: post
 title: 不同隔离级别下的乐观锁有区别吗?
-categories: [Mysql]
-tags: [Mysql]
+categories: [mysql]
+tags: [mysql]
 ---
 
 主要内容

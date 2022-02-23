@@ -1,8 +1,8 @@
 ---
 layout: post
 title: 高并发情况下的业务错误记录(mysql)
-categories: [Mysql]
-tags: [Mysql]
+categories: [mysql]
+tags: [mysql]
 ---
 
 # 背景

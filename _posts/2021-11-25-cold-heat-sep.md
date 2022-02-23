@@ -1,8 +1,8 @@
 ---
 layout: post
 title: MySQL优化实战-冷热分离
-categories: [Mysql]
-tags: [Mysql]
+categories: [mysql]
+tags: [mysql]
 ---
 
 # 背景
