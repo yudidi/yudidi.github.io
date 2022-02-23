@@ -48,7 +48,7 @@ find . -name '*.sh' -exec chmod +x {} \;
 ```
 
 4. 使用 sed -i --和sed -i -e 搜尋與取代文字
-// 附录3
+// 附录3,6,7
 批量替换sh文件中的内容
 ```bash
 #对发布的文件/做一些处理，版本号替换，修改权限等
@@ -76,3 +76,4 @@ sed -i -e 's/123/456/g' sedtest.txt
 4.[Linux sed 命令--和使用示例](https://www.runoob.com/linux/linux-comm-sed.html)
 5.[`find <path> -name "*.sh" -exec chmod +x \{\} \;` 是如何工作的？](https://stackoverflow.com/questions/64401299/how-does-find-path-name-sh-exec-chmod-x-work)
 6.[sed替换内容中有斜杠该怎么处理](https://blog.csdn.net/xingjingb/article/details/118075915)
+7.[mac 执行sed -i指令时，总是出现extra characters at the end of command](https://blog.csdn.net/lgh1117/article/details/50094595)

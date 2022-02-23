@@ -1,6 +1,8 @@
 ---
 layout: post
 title: --inuse/alloc_space --inuse/alloc_objects区别
+categories: [pprof]
+tags: [pprof]
 ---
 
 通常情况下
