@@ -56,8 +56,10 @@ func showMemoryUsage() {
 ```
 
 # 如何阅读pprof生成的图形
+附录3,4
 
 # 参考
 1.[golang pprof 实战](https://blog.wolfogre.com/posts/go-ppof-practice/)
 2.[go pprof 性能分析-pprof 数据采样](https://wudaijun.com/2018/04/go-pprof/)
 3.[Go高性能系列教程：读懂pprof生成的报告](https://zhuanlan.zhihu.com/p/376191268)
+4.[Go常用包(三十):性能调试利器使用(中)](https://liuqh.icu/2021/11/17/go/package/30-pprof-2)
