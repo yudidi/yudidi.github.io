@@ -143,6 +143,27 @@ archery每执行一个sql,就会在备份库里生成对应的sql语句，而且
 du -sh * | sort -n
 du -lh --max-depth=1 |sort -n
 
+
+# 2022-02-28更新
+// 附录7,8
+* 背景
+也是磁盘报警,然后我们发现是日志切割问题导致产生了一个超大的日志文件。
+然后我们删除了这个文件,但是df -lh查看的Avail空间并没有减少 和 `du -sh *`去日志目录统计磁盘占用, 发现并没有减少。
+TODO 这里好像可以说明磁盘文件并没有被释放。需要理解磁盘原理后明确这点。
+
+* 现象
+rm删除，但是发现并没有释放磁盘空间。需要重启进程才能真的释放磁盘空间
+
+通过lsof命令查找运行中的进程占用已经删除的文件:
+```
+lsof | grep delete |sort -nrk 7|more
+```
+
+* 原因
+因为某个服务的日志切割方法，是很早之前实现，没有经过严格测试。 存在某些情况，某个日志文件无法切割，逐渐变成大文件。
+猜测:日志切割流程中存在重命名和删除操作，某个操作会导致进程持有fd。即使导致我们在命令行删除文件时，该文件fd还一般被进程占用，不能真正被删除? 
+可以使用`lsof | grep delete |sort -nrk 7|more`查看
+
 # 参考
 1.[linux磁盘已满，查看哪个文件占用多](https://blog.csdn.net/a854517900/article/details/80824966)
 2.[goInception Docs-TODO回滚机制](https://hanchuanchuan.github.io/goInception/#architecture)
@@ -150,3 +171,5 @@ du -lh --max-depth=1 |sort -n
 4.[docker compose down命令的作用](https://maizitoday.github.io/post/docker%E7%B3%BB%E5%88%97-compose/#down)
 5.[Inception 备份功能说明](https://inception-document.readthedocs.io/zh_CN/latest/backup/)
 6.[Linux查看文件或文件夹大小: du命令](https://blog.csdn.net/duan19920101/article/details/104823301)
+7.[lsof 命令用法：查看已删除空间却没有释放的进程](https://blog.51cto.com/mofansheng/1939816)
+8.[利用lsof命令查找已经删除的文件来释放磁盘空间](https://www.cnblogs.com/zhangmingcheng/p/11676438.html)
