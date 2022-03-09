@@ -44,8 +44,15 @@ pre-price 13570 xxx txt    REG 253,17 83395167 2382348 pre-price-srv
 
 使用fuser来查文件或目录被谁占用
 
+# Linux下根据进程ID查看进程文件的路径
+```bash
+1.执行命令：pwdx  PID 命令，就得到进程jar包所在的位置
+2.执行命令：ll /proc/PID/cwd 命令，也能得到进程jar包所在的位置
+```
+
 # 参考
 1.[34 | 关于 Linux 网络，你必须知道这些（下）](https://time.geekbang.org/column/article/81057)
 2.[linux查文件被哪些程序占用—fuser和lsof的使用](https://blog.csdn.net/happyteafriends/article/details/12993691)
 3.[lsof命令使用场景](https://blog.csdn.net/dengbixuan/article/details/106817389)
 4.[fuser=使用文件或文件结构识别进程](https://wangchujiang.com/linux-command/c/fuser.html)
+5.[Linux下根据进程ID查看进程文件的路径](https://blog.csdn.net/shixin_0125/article/details/108100671#:~:text=1%E3%80%81%E7%94%A8ps%20%2Def%20%7C,proc%2F18283%20%E4%BB%A5%E4%B8%8B%E6%98%AF%2Fproc)
