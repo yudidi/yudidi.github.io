@@ -1,6 +1,8 @@
 ---
 layout: post
 title: 工作中遇到的问题-如何避免长事务对业务的影响？
+categories: [mysql]
+tags: [mysql undo log]
 ---
 
 # 其次，从数据库端来看： 【TODO】都值得试一试
@@ -17,8 +19,12 @@ pt-kill字面意思就是: kill掉MySQL满足某些特征的query语句
 
 # 参考
 1.[如何避免长事务对业务的影响？](https://time.geekbang.org/column/article/69236)
+
 2.[pt-tools系列：pt-kill 官方使用文档](https://developer.aliyun.com/article/672763)
+
 3.[Percona-Toolkit系列之pt-kill杀会话利器](https://www.fordba.com/percona-toolkit-pt-kill.html)
+
 4.[general_log]()
+
 5.[innodb_undo_tablespaces的含义。undolog表空间清理](https://www.google.com/search?q=innodb_undo_tablespaces+%E4%BD%BF%E7%94%A8%E6%B8%85%E7%90%86)
 执行一个长事务，可以肉眼观察到undolog日志文件的膨胀。
