@@ -69,6 +69,13 @@ sed -i -e 's/123/456/g' sedtest.txt
 4.2 sed使用示例
 // 附录4
 
+
+# 5.将条件判断（if语句）写在bash命令行中
+// 附录8
+```bash
+ps -ef | grep eureka |grep -v grep ;if [ $? == 0 ]; then ps -ef | grep eureka |grep -v grep |awk ‘{print $2}’|xargs kill -9; fi
+```
+
 # 参考
 1.[Linux--shell中$()命令](https://blog.csdn.net/sayhello_world/article/details/73496500)
 2.[每天一个Linux命令（20）--find命令之exec](https://www.cnblogs.com/aaronax/p/5618024.html)
@@ -77,3 +84,5 @@ sed -i -e 's/123/456/g' sedtest.txt
 5.[`find <path> -name "*.sh" -exec chmod +x \{\} \;` 是如何工作的？](https://stackoverflow.com/questions/64401299/how-does-find-path-name-sh-exec-chmod-x-work)
 6.[sed替换内容中有斜杠该怎么处理](https://blog.csdn.net/xingjingb/article/details/118075915)
 7.[mac 执行sed -i指令时，总是出现extra characters at the end of command](https://blog.csdn.net/lgh1117/article/details/50094595)
+8.[将条件判断（if语句）写在bash命令行中](https://blog.csdn.net/qq_31977125/article/details/88545675)
+  [Linux(二)：巧用分号在命令行执行逻辑判断语句](https://blog.csdn.net/yiifaa/article/details/77844387?spm=1001.2101.3001.6650.7&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-7.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-7.pc_relevant_default&utm_relevant_index=10)
