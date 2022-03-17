@@ -55,6 +55,7 @@ show variables like 'innodb_undo_tablespaces';
 
 ## 我们执行kill语句,发现不能kill。
 // 参考附录3
+![_config.yml]({{ site.baseurl }}/images/content/20220317-为什么发送了kill信号但是不能马上执行kill(因为没走到检查信号的埋点).png)
 
 # 参考
 1.[03 | 事务隔离：为什么你改了我还看不见?](https://time.geekbang.org/column/article/68963)
