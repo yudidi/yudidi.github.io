@@ -1,6 +1,6 @@
 ---
 layout: post
-title: update语句导致undo log很多,导致myql占用磁盘膨胀
+title: update导致undolog膨胀,mysql磁盘占用膨胀 && kill不掉的语句
 categories: [mysql]
 tags: [mysql undo log]
 ---
@@ -52,7 +52,9 @@ show variables like 'innodb_undo_tablespaces';
 然后参数`innodb_max_undo_log_size`为1073741824。
 
 # 如何处理巨大的回滚段? TODO
-我们执行kill语句,发现不能kill,找阿里云解决的
+
+## 我们执行kill语句,发现不能kill。
+// 参考附录3
 
 # 参考
 1.[03 | 事务隔离：为什么你改了我还看不见?](https://time.geekbang.org/column/article/68963)
@@ -65,3 +67,10 @@ show variables like 'innodb_undo_tablespaces';
       长事务意味着系统里面会存在很老的事务视图。由于这些事务随时可能访问数据库里面的任何数据，所以这个事务提交之前，数据库里面它可能用到的回滚记录都必须保留，这就会导致大量占用存储空间。
 
 2.[参考我之前博客](https://yudidi.github.io/articles/2021-06-23/mysql-long-transaction-disadvantage)
+
+3.[MySQL UNDO表空间独立和截断](http://blog.itpub.net/25583515/viewspace-2719969/)
+
+4.[万答#18，MySQL8.0 如何快速回收膨胀的UNDO表空间](https://www.1024sou.com/article/624560.html)
+
+5.[32 | 为什么还有kill不掉的语句？](https://time.geekbang.org/column/article/79026)
+   所以，如果你发现一个线程处于 Killed 状态，你可以做的事情就是，通过影响系统环境，让这个 Killed 状态尽快结束。
