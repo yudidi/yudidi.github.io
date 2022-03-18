@@ -1,6 +1,6 @@
 ---
 layout: post
-title:
+title: linux shell或命令行
 categories: [shell]
 tags: [shell]
 ---
@@ -76,6 +76,11 @@ sed -i -e 's/123/456/g' sedtest.txt
 ps -ef | grep eureka |grep -v grep ;if [ $? == 0 ]; then ps -ef | grep eureka |grep -v grep |awk ‘{print $2}’|xargs kill -9; fi
 ```
 
+# Grep在匹配行之前显示文件名和行号
+```bash
+grep -n --with-filename 'pattern' file
+```
+
 # 参考
 1.[Linux--shell中$()命令](https://blog.csdn.net/sayhello_world/article/details/73496500)
 2.[每天一个Linux命令（20）--find命令之exec](https://www.cnblogs.com/aaronax/p/5618024.html)
@@ -86,3 +91,4 @@ ps -ef | grep eureka |grep -v grep ;if [ $? == 0 ]; then ps -ef | grep eureka |g
 7.[mac 执行sed -i指令时，总是出现extra characters at the end of command](https://blog.csdn.net/lgh1117/article/details/50094595)
 8.[将条件判断（if语句）写在bash命令行中](https://blog.csdn.net/qq_31977125/article/details/88545675)
   [Linux(二)：巧用分号在命令行执行逻辑判断语句](https://blog.csdn.net/yiifaa/article/details/77844387?spm=1001.2101.3001.6650.7&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-7.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-7.pc_relevant_default&utm_relevant_index=10)
+9.[Grep在匹配行之前显示文件名？](https://cloud.tencent.com/developer/ask/28017)
