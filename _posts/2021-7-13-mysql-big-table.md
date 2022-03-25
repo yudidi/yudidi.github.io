@@ -140,6 +140,24 @@ mysql单索引下二级索引的原理:
 
 分布式二级索引原理:
 
+# 大表DDL语句的执行
+阿里云的DMS,无锁变更执行DDL语句
+
+1. 加索引。往中间表拷贝数据是用的如下语句:
+
+```sql
+INSERT IGNORE INTO `库`.`tp_2459945_ogt_t_user_voucher(临时表)` (`xxx`)
+SELECT `xxx`
+FROM `库`.`表` FORCE INDEX (`PRIMARY`)
+WHERE `id` > ?
+	AND (`id` < ?
+		OR `id` = ?)
+LOCK IN SHARE MODE;
+```
+
+2. 注意选择执行方式。大表写入可能会导致主从延迟。需要选择主从阀值控制执行速率。
+
+
 # 附录
 1.[MySQL查看数据库表容量大小-3.查看指定数据库容量大小](https://blog.csdn.net/fdipzone/article/details/80144166)
 
