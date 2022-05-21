@@ -37,3 +37,4 @@ WHERE
 # 参考
 
 1.[关于MySQL中only_full_group_by模式的一点个人理解](https://www.jianshu.com/p/7f532985ff39)
+2.[The query is valid if name is a primary key of t or is a unique NOT NULL column](https://dev.mysql.com/doc/refman/8.0/en/group-by-handling.html)
