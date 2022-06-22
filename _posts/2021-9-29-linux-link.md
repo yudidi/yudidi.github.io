@@ -25,6 +25,7 @@ mv logs/ /data/aplum/price-srv-logs && mv runtime/ /data/aplum/price-srv-logs &&
 # 当前目录创建软链接(logs,runtime,runtime_canal),指向新磁盘日志路径
 ln -s /data/aplum/price-srv-logs/logs logs && ln -s /data/aplum/price-srv-logs/runtime runtime && ln -s /data/aplum/price-srv-logs/runtime_canal runtime_canal && sh deploy/run.sh start
 
+ln -s /data/aplum/product-logs logs
 # 验证下磁盘使用率
 cd ~ && du -h --max-depth=1
 df -lh

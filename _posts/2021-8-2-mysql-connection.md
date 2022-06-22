@@ -30,5 +30,23 @@ A:
 * 空闲连接设置的准则
 配置合适的连接数,使得这些连接可以频繁的被用到.
 
+
+# golang-mysql超时设置
+// 附录2
+```go
+var DefaultConfig = map[string]string{
+	"charset":      "utf8",
+	"parsetime":    "True",
+	"loc":          "Local",
+	"timeout":      "15s",
+	"readTimeout":  "2s",
+	"writeTimeout": "5s",
+	"maxIdle":      "10",
+	"maxOpenConn":  "100",
+	"maxLifetime":  "1",
+}
+```
+
 # 附录
 1.[[译]配置 sql.DB 获得更好的性能](https://colobu.com/2020/05/18/configuring-sql-DB-for-better-performance-2020/)
+2.[golang中mysql建立连接超时时间timeout 测试](https://www.cnblogs.com/lanyangsh/p/11749270.html)
