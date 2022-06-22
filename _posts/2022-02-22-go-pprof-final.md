@@ -120,7 +120,7 @@ vi_fj_vector := components.Global_Ffm_model.Fea_id_field_map[fmt.Sprintf("%d_%d"
 
 
 * 成果
-1.qps 70, p99<100ms, 满足线上性能要求。
+1.qps 70, p99<100ms, 满足技术部线上性能要求。
 
 
 # 参考
