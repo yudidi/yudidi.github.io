@@ -71,6 +71,58 @@ func showMemoryUsage() {
 
 [使用多年的go pprof检查内存泄漏的方法居然是错的---对比2个heap的对象变化](https://colobu.com/2019/08/20/use-pprof-to-compare-go-memory-usage/)
 
+
+# demo:2022-06-23
+最近有个线上推荐服务,是读取1个1-2的模型文件,进行预测,然后提供对多路召回的商品进行实时排序。
+
+性能现象:
+
+1.qps<10,单个接口<100ms。
+
+2.qps>10,单个接口马上400-500ms。
+
+3.内存使用率50%, cpu使用率60-70%, 所以不是资源不足的问题。
+
+* 分析方法
+2个同事分开分析
+
+我:pprof,cpu,heap + 打印各个部分耗时。
+
+另一个同事:查看源代码，主要关注耗时较多环节的代码。
+
+* 主要操作
+
+1.sql耗时，改为缓存
+
+2.因为不是资源问题,猜测锁等待或gc，导致接口响应慢。
+
+pprof cpu查看耗时最多的函数，然后查看代码。
+
+3.逐步注释代码，查看压测结果，只要注释部分代码，性能就很好，所以定位到部分问题代码。
+
+```go
+解析FFM模型的特征组合部分的参数时,直接存储为:
+
+k: feat_id和field组合,通过"_"拼接
+ v: (特征id和特征域)组合的权重向量数组
+  Fea_id_field_map map[string][K_vector]float64
+
+
+导致使用参数打分时,需要使用`fmt.Sprintf("%d_%d", fea_id_i, fea_id_field_map[fea_id_j]`
+构造key,导致产生大量字符串，同时pprof查看到fmt.Sprintf的耗时居然占了整个cpu火焰图的40%,所以想办法去掉整个字符串拼接
+
+vi_fj_vector := components.Global_Ffm_model.Fea_id_field_map[fmt.Sprintf("%d_%d", fea_id_i, fea_id_field_map[fea_id_j])]
+```
+
+4.调整模型数据结构。消除字符串拼接
+
+5. go1.16升级go1.18，但是看监控gc更慢了(从0.5ms到2ms的gc耗时)，不过整体性能更好了。也可能是上面的原因。
+
+
+* 成果
+1.qps 70, p99<100ms, 满足线上性能要求。
+
+
 # 参考
 1.[golang pprof 实战](https://blog.wolfogre.com/posts/go-ppof-practice/)
 2.[go pprof 性能分析-pprof 数据采样](https://wudaijun.com/2018/04/go-pprof/)
