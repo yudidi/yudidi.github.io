@@ -17,3 +17,4 @@ docker logs --tail 10 qp -f
 
 #
 1.[docker logs](https://blog.csdn.net/liuxiao723846/article/details/121864929)
+2.[Docker笔记（十三）：容器日志采集实践](https://juejin.cn/post/6844904113528897549)
