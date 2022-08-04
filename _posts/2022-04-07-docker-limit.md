@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Docker: 限制容器可用的内存
+title: Docker 限制容器可用的内存
 categories: [docker]
 tags: [docker
 ---
