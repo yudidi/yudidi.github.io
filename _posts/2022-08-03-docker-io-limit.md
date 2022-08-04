@@ -21,7 +21,7 @@ tags: [limit]
 
 # 美团通过修改内核,可以给每个容器单独配置bufferdio
 
-![_config.yml]({{ site.baseurl }}/images/content/20211112-slowsql-COMMIT-IO.png)
+![_config.yml]({{ site.baseurl }}/images/content/20220803-docker_limit_io.jpeg)
 
 
 # 美团扩展k8s增加了更多的限制,同时还修改了core dump的流程
