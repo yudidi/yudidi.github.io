@@ -1,7 +1,10 @@
 ---
 layout: post
-title: go-zeor组件 TODO
+title: go map相关操作
+categories: [go]
+tags: [map]
 ---
+
 # 主要疑问
 ## 2.delete全部key可以清空整个map吗?
 A:内存没有释放。清空只是修改了一个标记，底层内存还是被占用了
