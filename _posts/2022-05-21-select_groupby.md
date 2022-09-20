@@ -1,5 +1,7 @@
 ---
-layout: post title: select中既有聚合字段，又有非聚合字段 categories: [mysql]
+layout: post 
+title: select中既有聚合字段，又有非聚合字段 
+categories: [mysql]
 tags: [mysql]
 ---
 
