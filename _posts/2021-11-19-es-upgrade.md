@@ -122,5 +122,9 @@ es机器配置升级前后-cpu使用率对比
 内存和磁盘都够用
 ![_config.yml]({{ site.baseurl }}/images/content/20211119-es-配置升级-内存和磁盘都够用.png)
 
+
+## 第三次升级 TODO
+2022年10月,升级cpu,4核8g三节点 -> 8核8g三节点
+
 # 参考
 1.[Elasticsearch: 权威指南 » 管理、监控和部署 » 部署 » 重要配置的修改-最小主节点数](https://www.elastic.co/guide/cn/elasticsearch/guide/current/important-configuration-changes.html)
