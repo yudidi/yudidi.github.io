@@ -28,3 +28,4 @@ The optimizer will use existing index statistics instead of doing index dives fo
 2.1 
 3.[MySQL索引原理及慢查询优化](https://tech.meituan.com/2014/06/30/mysql-index.html)
 4.[终极版本:美团开发的基于sql自动创建索引的系统方案--基于代价的慢查询优化建议](https://tech.meituan.com/2022/04/21/slow-query-optimized-advice-driven-by-cost-model.html)
+https://juejin.cn/post/6971387163799715876
