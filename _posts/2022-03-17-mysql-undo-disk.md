@@ -2,7 +2,7 @@
 layout: post
 title: update导致undolog膨胀,mysql磁盘占用膨胀 && kill不掉的语句
 categories: [mysql]
-tags: [mysql undo log]
+tags: [mysql undo_log]
 ---
 
 # 背景
