@@ -40,8 +40,12 @@ update t_user_voucher set seller_support=0 where id in(select id from tmp_muvids
 .库/表.ibd	13G
 ```
 
-## undo log存放的位置是 TODO
-A: 好像是在.idb文件中???
+## undo log存放的位置是
+A: 好像是在.idb文件中??? TODO
+
+// 附录6
+
+InnoDB默认是将Undo-log存储在xx.ibdata共享表数据文件当中，默认采用段的形式存储
 
 ```sql
 show variables like 'innodb_file_per_table';
@@ -52,6 +56,12 @@ show variables like 'innodb_undo_tablespaces';
 ```
 
 然后参数`innodb_max_undo_log_size`为1073741824。
+
+## 对于事务回滚原理的纠正
+// 附录6
+
+实际上当一个事务需要回滚时，本质上并不会以执行反SQL的模式还原数据，
+而是直接将roll_ptr回滚指针指向的Undo记录，从xx.ibdata共享表数据文件中拷贝到xx.ibd表数据文件，覆盖掉原本改动过的数据。
 
 # 如何处理巨大的回滚段? TODO
 
@@ -78,3 +88,5 @@ show variables like 'innodb_undo_tablespaces';
 
 5.[32 | 为什么还有kill不掉的语句？](https://time.geekbang.org/column/article/79026)
    所以，如果你发现一个线程处于 Killed 状态，你可以做的事情就是，通过影响系统环境，让这个 Killed 状态尽快结束。
+
+6.[InnoDB默认是将Undo-log存储在xx.ibdata共享表数据文件当中，默认采用段的形式存储](https://juejin.cn/post/7157956679932313608)
