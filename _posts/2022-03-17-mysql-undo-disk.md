@@ -64,6 +64,11 @@ show variables like 'innodb_undo_tablespaces';
 而是直接将roll_ptr回滚指针指向的Undo记录，从xx.ibdata共享表数据文件中拷贝到xx.ibd表数据文件，覆盖掉原本改动过的数据。
 
 # 如何处理巨大的回滚段? TODO
+// 附录7
+
+没啥好办法，大数据量，回滚就是很耗时。
+
+可以考虑分批提交。
 
 ## 我们执行kill语句,发现不能kill。
 // 参考附录3
@@ -90,3 +95,5 @@ show variables like 'innodb_undo_tablespaces';
    所以，如果你发现一个线程处于 Killed 状态，你可以做的事情就是，通过影响系统环境，让这个 Killed 状态尽快结束。
 
 6.[InnoDB默认是将Undo-log存储在xx.ibdata共享表数据文件当中，默认采用段的形式存储](https://juejin.cn/post/7157956679932313608)
+
+7.[MySQL的rollback--大事务回滚](https://blog.csdn.net/dreamyuzhou/article/details/121747031)
