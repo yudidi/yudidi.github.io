@@ -2,7 +2,7 @@
 layout: post
 title: update导致undolog膨胀,mysql磁盘占用膨胀 && kill不掉的语句
 categories: [mysql]
-tags: [mysql undo log]
+tags: [mysql undo_log]
 ---
 
 # 背景
@@ -27,11 +27,12 @@ update t_user_voucher set seller_support=0 where id in(select id from tmp_muvids
 
 原因定位过程
 
-1.最开始是以为有什么上线，导致数据增长比较多。所以问了下3个业务组最近有哪些上线。结果没有上上线。
+1. 最开始是以为有什么上线，导致数据增长比较多。所以问了下3个业务组最近有哪些上线。结果没有上上线。
 
 2. 因为我们线上是一主三从，然后一个同事发现, 只有主库报警，从库没有报警，主库磁盘占用 比 从库磁盘占用 多了60G。
 
 3. 然后阿里云提了工单，给我们看了mysql8数据库的数据库文件相关的信息
+
 ```bash
 // 我做了一定处理
 库	269G	no	
@@ -41,6 +42,7 @@ update t_user_voucher set seller_support=0 where id in(select id from tmp_muvids
 
 ## undo log存放的位置是 TODO
 A: 好像是在.idb文件中???
+
 ```sql
 show variables like 'innodb_file_per_table';
 说明线上为独占表空间
@@ -55,6 +57,7 @@ show variables like 'innodb_undo_tablespaces';
 
 ## 我们执行kill语句,发现不能kill。
 // 参考附录3
+
 ![_config.yml]({{ site.baseurl }}/images/content/20220317-为什么发送了kill信号但是不能马上执行kill(因为没走到检查信号的埋点).png)
 
 # 参考
