@@ -74,3 +74,5 @@ tips：系统load高，不代表cpu资源不足。Load高只是代表需要运�
 3.[load高但是cpu占用率低的排查](https://www.cnblogs.com/51core/p/13640104.html)
 
 4.[top命令输出解释以及load average 详解及排查思路](https://blog.csdn.net/zhangchenglikecc/article/details/52103737)
+
+5.[进程上下文频繁切换导致load average过高](https://www.cnblogs.com/lihuaichen/p/15186410.html)
