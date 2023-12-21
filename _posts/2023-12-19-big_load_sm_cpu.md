@@ -65,7 +65,7 @@ tips：系统load高，不代表cpu资源不足。Load高只是代表需要运�
 
 * 排查单个进程的具体线程的上下文切换情况
 
-通过vmstate只能查看总的cpu上下文切换，可通过pidstat命令查看线程层面的上下文切换信息 `pidstat -wt 1`（下图拉的是9s的数据，总共36w次，平均每秒4w次）
+通过vmstat只能查看总的cpu上下文切换，可通过pidstat命令查看线程层面的上下文切换信息 `pidstat -wt 1`（下图拉的是9s的数据，总共36w次，平均每秒4w次）
 
 
 
@@ -76,3 +76,7 @@ tips：系统load高，不代表cpu资源不足。Load高只是代表需要运�
 4.[top命令输出解释以及load average 详解及排查思路](https://blog.csdn.net/zhangchenglikecc/article/details/52103737)
 
 5.[进程上下文频繁切换导致load average过高](https://www.cnblogs.com/lihuaichen/p/15186410.html)
+
+* 1、LMbench 是带宽（读取缓存文件、内存拷贝、读写内存、管道等）和反应时间（上下文切换、网路、进程创建等）的评测工具；
+
+* 2、micro-benchmark contextswitch 可以测试不同的CPU在最少多少ns可以进行一次上下文件切换，再转化为秒，我们可以确认该处理器每可以进行的上下文件切换数 ，该工具的使用可以参看tsuna的blog。
