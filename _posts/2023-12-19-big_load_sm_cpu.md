@@ -61,6 +61,14 @@ func main() {
 
 tips：系统load高，不代表cpu资源不足。Load高只是代表需要运行的队列累计过多。但队列中的任务实际可能是耗cpu的，也可能是耗i/0及其他因素的
 
+但是system的中断数（in)、上下文切换（cs）特别频繁，进程上下文切换次数较多的情况下，很容易导致CPU将大量的时间耗费在寄存器、内核栈、以及虚拟内存等资源的保存和恢复上，进而缩短了真正运行进程的时间造成load高。
+
+* 排查单个进程的具体线程的上下文切换情况
+
+通过vmstate只能查看总的cpu上下文切换，可通过pidstat命令查看线程层面的上下文切换信息 `pidstat -wt 1`（下图拉的是9s的数据，总共36w次，平均每秒4w次）
+
+
+
 2.[【Linux负载系列-2】Linux CPU 使用率低 Load 负载高场景测试](https://www.ebpf.top/post/sys_linux_load_avg2/)
 
 3.[load高但是cpu占用率低的排查](https://www.cnblogs.com/51core/p/13640104.html)
