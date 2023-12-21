@@ -67,7 +67,9 @@ tips：系统load高，不代表cpu资源不足。Load高只是代表需要运�
 
 通过vmstat只能查看总的cpu上下文切换，可通过pidstat命令查看线程层面的上下文切换信息 `pidstat -wt 1`（下图拉的是9s的数据，总共36w次，平均每秒4w次）
 
+cswch/s:
 
+nvcswch/s: TODO 比如IO等待让出???
 
 2.[【Linux负载系列-2】Linux CPU 使用率低 Load 负载高场景测试](https://www.ebpf.top/post/sys_linux_load_avg2/)
 
@@ -80,3 +82,7 @@ tips：系统load高，不代表cpu资源不足。Load高只是代表需要运�
 * 1、LMbench 是带宽（读取缓存文件、内存拷贝、读写内存、管道等）和反应时间（上下文切换、网路、进程创建等）的评测工具；
 
 * 2、micro-benchmark contextswitch 可以测试不同的CPU在最少多少ns可以进行一次上下文件切换，再转化为秒，我们可以确认该处理器每可以进行的上下文件切换数 ，该工具的使用可以参看tsuna的blog。
+
+cswch/s: 每秒任务主动(自愿的)切换上下文的次数，当某一任务处于阻塞等待时，将主动让出自己的CPU资源。
+
+nvcswch/s: 每秒任务被动(不自愿的)切换上下文的次数，CPU分配给某一任务的时间片已经用完，因此将强迫该进程让出CPU的执行权。
