@@ -58,6 +58,11 @@ func main() {
 # 参考
 
 1.[记一次CPU使用率低负载高的排查过程](https://juejin.cn/post/6844904173843005447)
+
+tips：系统load高，不代表cpu资源不足。Load高只是代表需要运行的队列累计过多。但队列中的任务实际可能是耗cpu的，也可能是耗i/0及其他因素的
+
 2.[【Linux负载系列-2】Linux CPU 使用率低 Load 负载高场景测试](https://www.ebpf.top/post/sys_linux_load_avg2/)
+
 3.[load高但是cpu占用率低的排查](https://www.cnblogs.com/51core/p/13640104.html)
+
 4.[top命令输出解释以及load average 详解及排查思路](https://blog.csdn.net/zhangchenglikecc/article/details/52103737)

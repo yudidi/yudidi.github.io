@@ -18,4 +18,5 @@ PostgreSQL缓存读顺序share_buffers -> 操作系统缓存 -> 硬盘。
 # 参考
 
 1.[32丨当Postgres磁盘读引起I/O高的时候，应该怎么办？](https://time.geekbang.org/column/article/207096)
+
 2.[什么时候加载shared_buffers](https://www.cnblogs.com/zhangfx01/p/postgresql_shared_buffer.html)
