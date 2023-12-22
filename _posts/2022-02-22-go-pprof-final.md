@@ -128,5 +128,29 @@ vi_fj_vector := components.Global_Ffm_model.Fea_id_field_map[fmt.Sprintf("%d_%d"
 2.[go pprof 性能分析-pprof 数据采样](https://wudaijun.com/2018/04/go-pprof/)
 3.[Go高性能系列教程：读懂pprof生成的报告](https://zhuanlan.zhihu.com/p/376191268)
 4.[Go常用包(三十):性能调试利器使用(中)](https://liuqh.icu/2021/11/17/go/package/30-pprof-2)
+5.[实用go pprof使用指南](https://zhuanlan.zhihu.com/p/396363069)
 
+```text
+flat flat%
+一个函数内的directly操作的物理耗时。例如
 
+func foo(){
+    a()                                        // step1
+    largeArray := [math.MaxInt64]int64{}       // step2
+    for i := 0; i < math.MaxInt64; i++ {       // step3
+            c()                                    // step4
+    }
+}
+flat只会记录step2和step3的时间；flat%即是flat/总运行时间。内存等参数同理。
+```
+
+```text
+cum cum%
+相比flat，cum则是这个函数内所有操作的物理耗时，比如包括了上述的step1、2、3、4。
+
+一般cum是我们次关注的，且需要结合flat来看。flat可以让我们知道哪个函数耗时多，而cum可以帮助我们找到是哪些函数调用了这些耗时的（flat值大的）函数。
+```
+
+```text
+火焰图的横向长度表示cum，相比下面超出的一截代表flat。// 也就是某个函数本身直接执行的耗时，不包括其子流程的耗时
+```
