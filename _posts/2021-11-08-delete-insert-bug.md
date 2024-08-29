@@ -28,7 +28,7 @@ delete操作是当前读,在mysql内部分为4个步骤执行
 
 1. current read
 
-2. read && lock
+2. return && lock
 
 3. delete row
 

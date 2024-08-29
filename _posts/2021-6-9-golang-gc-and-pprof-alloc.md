@@ -1,6 +1,8 @@
 ---
 layout: post
 title: golang性能优化和gc
+categories: [pprof]
+tags: [pprof]
 ---
 
 ![_config.yml]({{ site.baseurl }}/images/content/golang-gc.png)

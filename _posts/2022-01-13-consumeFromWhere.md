@@ -1,8 +1,8 @@
 ---
 layout: post
 title: RocketMQ一个新的消费组初次启动时从何处开始消费呢？
-categories: [mysql]
-tags: [mysql]
+categories: [RocketMQ]
+tags: [RocketMQ]
 ---
 
 # 背景
