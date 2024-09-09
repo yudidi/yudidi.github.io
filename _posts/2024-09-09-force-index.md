@@ -47,4 +47,4 @@ tags: [mysql mongodb]
 
 # 参考资料
 
-1.[10 | MySQL为什么有时候会选错索引？ 林晓斌](https://time.geekbang.org/column/article/71173)
+1. [10|MySQL为什么有时候会选错索引？林晓斌](https://time.geekbang.org/column/article/71173)
