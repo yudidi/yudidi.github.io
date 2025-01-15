@@ -71,6 +71,6 @@ Q:什么场景不依赖版本号,只依赖某些限制条件(如:库存),则可�
 
 # 参考资料
 1.[08 | 事务到底是隔离的还是不隔离的？](https://time.geekbang.org/column/article/70562)
-2.本机资料[【169期】面试官：同学，分析一下MySQL_InnoDB的加锁过程吧-技术圈.pdf]
+2.本机资料[【169期】面试官：同学，分析一下MySQL_InnoDB的加锁过程吧-技术圈.pdf](https://www.modb.pro/db/62531)
 3.[使用mysql乐观锁解决并发问题](https://www.cnblogs.com/laoyeye/p/8097684.html)
 4.[乐观锁加重试，并发更新数据库一条记录导致：Lock wait timeout exceeded](https://blog.csdn.net/earthhour/article/details/105585695)
