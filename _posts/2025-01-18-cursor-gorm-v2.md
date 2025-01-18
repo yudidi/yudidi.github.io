@@ -24,6 +24,7 @@ tags: [cursor]
 participant "应用代码" as App
 participant "gorm.Open()\n(gorm.go)" as Open
 participant "callbacks.go\ninitializeCallbacks()" as InitCallbacks
+participant "processor\n(callbacks.go)" as Processor
 participant "gorm.DB\n(finisher_api.go)" as DB  
 participant "Statement\n(statement.go)" as Statement
 participant "Query回调\n(callbacks/query.go)" as QueryCallback
@@ -31,9 +32,6 @@ participant "BuildQuerySQL\n(callbacks/query.go)" as BuildQuerySQL
 participant "Clause处理\n(clause/*)" as Clause
 participant "数据库驱动" as Driver
 participant "gorm.Scan\n(scan.go)" as Scanner
-participant "Preload回调\n(callbacks/preload.go)" as Preloader
-participant "AfterQuery回调\n(callbacks/query.go)" as AfterQuery
-participant "钩子方法\n(callbacks/interfaces.go)" as Hook
 
 == 初始化阶段 ==
 App -> Open: Open(dialector, config)
@@ -43,7 +41,7 @@ Open -> InitCallbacks: initializeCallbacks(db)
 activate InitCallbacks
 InitCallbacks -> InitCallbacks: 创建processors map
 InitCallbacks -> QueryCallback: 注册Query回调
-note right: Register("gorm:query", Query)\nRegister("gorm:preload", Preload)\nRegister("gorm:after_query", AfterQuery)
+note right: 将Query/Preload/AfterQuery\n函数存入processor.fns切片中
 InitCallbacks --> Open: 返回callbacks实例
 deactivate InitCallbacks
 
@@ -51,52 +49,43 @@ Open --> App: 返回初始化完成的*gorm.DB
 deactivate Open
 
 == 查询阶段 ==
-App -> DB: Find(&users)/First(&user)
+App -> DB: Find(&users)
 activate DB
-
-DB -> DB: getInstance()
-note right: 创建新的DB实例
 
 DB -> Statement: 初始化Statement
 activate Statement
-Statement -> Statement: 设置Model和Dest
-Statement -> Clause: AddClause(SELECT/FROM等)
+Statement -> Statement: 设置Dest为&users
 deactivate Statement
 
-DB -> QueryCallback: Query(db)
+DB -> Processor: 执行回调链
+activate Processor
+note right: 遍历processor.fns切片\n依次执行回调函数
+
+Processor -> QueryCallback: Query(db)
 activate QueryCallback
 
 QueryCallback -> BuildQuerySQL: BuildQuerySQL(db)
-activate BuildQuerySQL
-BuildQuerySQL -> BuildQuerySQL: 处理Schema.QueryClauses
-note right: 构建SELECT/FROM/WHERE等子句
-BuildQuerySQL --> QueryCallback: 返回完整SQL
-deactivate BuildQuerySQL
+BuildQuerySQL --> QueryCallback: 返回SQL
 
 QueryCallback -> Driver: QueryContext执行SQL
 activate Driver
 Driver --> QueryCallback: 返回结果集(rows)
 deactivate Driver
 
-QueryCallback -> Scanner: Scan(rows, db)
+QueryCallback -> Scanner: Scan(rows, db, 0)
 activate Scanner
+note right: 将rows扫描到\ndb.Statement.Dest(&users)中
+Scanner -> Statement: 设置扫描结果到Dest
+Statement --> Scanner: 扫描完成
 Scanner --> QueryCallback: 扫描完成
 deactivate Scanner
+
+QueryCallback --> Processor: Query回调完成
 deactivate QueryCallback
 
-DB -> Preloader: Preload(db)
-activate Preloader
-Preloader -> Driver: 执行关联查询
-Driver --> Preloader: 返回关联数据
-Preloader --> DB: 预加载完成
-deactivate Preloader
-
-DB -> AfterQuery: AfterQuery(db)
-activate AfterQuery
-AfterQuery -> Hook: 调用AfterFind钩子
-AfterQuery -> Statement: 清理状态
-AfterQuery --> DB: 后处理完成
-deactivate AfterQuery
+Processor -> Processor: 执行Preload回调
+Processor -> Processor: 执行AfterQuery回调
+deactivate Processor
 
 DB --> App: 返回查询结果
 deactivate DB
@@ -162,8 +151,7 @@ deactivate DB
 
 # 2. 最终产出的时序图
 
-[gorm进行query的时序图](https://www.plantuml.com/plantuml/svg/ZLLTRzn457tthnZb0Nchq7st5DHiDb4hjIhD8l5IgPhQaurLhsriR_bu8YADadGXKRk9485G2bLJeIv1WGeIfVoPZBtxBxZsjSU-6uFwifwFS-xSEVVCtMjXn8EettCq7xwsQVlSZTYCF1qcmwEBiv-JPsipZ8TitlSfeki5lQktVU7gZRkkdiswNYF3fgiKR7B7kS_D1o5WxhgsQqSsT-mln4AnhYFp1koejPhpsYquQmNuuQe8xd7VLcUsMunHGYVYaUW9Dm9AM8mLNkrIqfs-23wN1uVZuw-0fj9kVfAkAtA6AlAa0Lfzsx6o_SwTc_yJWk1eY0M7zqCXVrbFTZVI2DcqUGLvk4a9yTvn_FL8dZwTlFfTRX-X7e7zK0Gr4dPCxgQAmASK0oRkDFh3G3WUjsh4y757qNFaT83vbKW4xoPe2QKX9azUoTUxyVxVySaUeTik45QuAK8LuxhdFT2qkJacDt-GBn_BmVxaspVnw4ysDwU1Uzdx7sJ6DB9VtG832ZFoWbbcUkwAtMret8piX-0AzA-M_WA9Uj9WTUQrxbVOrCDaLXDERXx8irC_yE0geHU4hCVzooHYE8F59qToOr2HLdCzE3cmkwkHmPP5rmv17Zqhk94fFJEBCU2jJctdnGH0NiRB49vMvruHfwnLOpfH9V7udo4afiebHuSNRnzhbgWN2RNEw52eWgtAA4U3U7Ct-MxzIju3L21LAwXw_EEByM_FBvMytJBOakrQ-dlmR8AmqLooWp32MQLe45Hhjmf2LqGtt33YhYdq1j4MonNl7qCwxHRUgs2gbcAK5bHhvL7baXfDiSUZjydvw9Pd2KS-6RH5IA5v3p3Ol6NXKEyitbnS-AYvj7pxLl9wgw448iVbQL8luPGwcBOtZKmX0krT1ftIIBJBaLbD86nv7NDLzFZLR1cl5v8In8VhK8BAZPiVNrzSNeHxGwkGEo-cZvc-il8Ns6hl3u1KrIBScgjZMpNoY9uRYS-YUElb-AT1YbTX4ARXvxzJICwUneVVJmuszC3xD2HbGsfD1dclDh91nfjbHFCSeE6tzlHuwzTuPmVV5HvAgUKIPHOMKWtVA8Qqx6fVKwEgU2YOV7GoNXlYirLAqU2e4WBnJwuQC7-ia-VhSllP-FoSteVcWObNUfTH6TFaotMj708v-uCn67JRP7YKxQHz1V-X29AyvVYlH-3fPFjD_EKQGUNPozrlqFOqUve8fa_R8mg73YB6QMdNX6lrUyw_)
-
+[gorm进行query的时序图](https://www.plantuml.com/plantuml/svg/XLHDJzjA5DtxLunOF2K8ahUsb2S8qPCgLIg8RQJAiIV1gZDsROT-x51f22KK96Y5Ig6bBOAg9KrLjK91f7ycuoJ_ejUUUEp1RhknFNVEENTyxxapvxYAxJRgXcJ1MrTrIo4kcgAz_U7--U3g_V3jsXHI73HlMIAYPjhrt1qBaqosJ3B1gcPc0wmV5S6gOXWLHRtd0APCTAAxkcBeZ_526CymvYtOuJ5Hmh9D5JkEQKCsBiTJBeQxAOSi5O5IXQJE2hRlAfREMQKYGY9XsLLSNCV41OeJVdCytnL9ImriFwA7nwFka_ZXylVzE2S7gF3dH85YGpUqO7zvwVOV90ISAB5WA0q7qm_hmzschn0iyzECnpP5WlUYwsrtQ6zl_F4hVNREwc7hgpYjXCkgGloAm2ig1Ym8eAL20T7M4JtReksNuuCVNkSxAXGaC0oQ_I_mWXmyCnhq7AkkQSyWrIHLlPQL5DNLLw6cp3AI_mIIQ0CPfVb5gyJOecs4LOeSRHtIgnxtauFgYfKa2UsIaVVjd3RRiKvBn8JCjbvRSK6osmosyeisDan5oyzNNMm7eJAX6zTGR7fnG9-UygovAd5eQsEukJ6ulBYPdTTjz7CVid4xqCxneBybQJZzpyC20Xsg7x9vRsYdxRLsXw_MfoTZmOLu0w2LtflJqPTtYJwMYZBwNoTQvXzmakt4YWywKga8c6WyvCWGF1OHeX3_ki4UTVh3wqu9E-xWiiSIyhCA0YnnDFtGfyspqKcRjMYyr-TP8upGkF7QDdtUJEbAcGpwHzxdaxWUQwGaSQcaJzXITASu-9Am10LngcLn6IW94JIRJCeQ3PifwcocvGd592v-wBAV0Zm_P3ZwxFNx7CEhFU_uzVYmcR7D1qwMTuKh94yGNXHoy17mPf1McK7_HZKACJU7oWTxcv-ydHtQwfQ9LidntkTyUuHkz6Te8f5g9QR13WzAG1NC5pyaWx9PuPg9UeWumPoCagY3QDFOHPAK49YYtP9MdzmuJEilsEXMOl1uKWvcGoNU8UnIOFNZ93RxSvXeZRhn2m00)
 基本能够很好的辅助一个初级研发看懂gorm v2的核心执行逻辑,主要是回调注册和回调执行的部分。
 
 
