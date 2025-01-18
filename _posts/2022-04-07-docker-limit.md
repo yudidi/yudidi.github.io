@@ -6,8 +6,10 @@ tags: [docker
 ---
 
 # 背景
-```go
+```shell
+
 docker run -it --rm -m 300M --memory-swap=300M u-stress /bin/bash
+
 ```
 
 # 参考
